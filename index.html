@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>OM Homestay Lamayuru | Direct Email Booking</title>
+    <title>OM Homestay Lamayuru | LINE QR Scanner</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tibetan:wght@400;700&display=swap" rel="stylesheet">
@@ -34,7 +34,7 @@
         .conn-item.whatsapp { background: #25D366; color: white; }
         .conn-item.telegram { background: #0088cc; color: white; }
         .conn-item.email { background: #d44638; color: white; }
-        .conn-item.line { background: #06C755; color: white; }
+        .conn-item.line { background: #06C755; color: white; cursor: pointer; }
         .conn-item:hover { transform: translateY(-2px); filter: brightness(1.05); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
 
         nav ul { display: flex; list-style: none; gap: 28px; }
@@ -79,26 +79,30 @@
         }
         .contact-icon-card {
             border-radius: 40px; padding: 20px 28px; width: 180px; text-align: center; text-decoration: none;
-            transition: 0.2s; color: white; font-weight: 600;
+            transition: 0.2s; color: white; font-weight: 600; display: inline-block;
         }
         .contact-icon-card.call { background: #2c6e9e; }
         .contact-icon-card.whatsapp { background: #25D366; }
         .contact-icon-card.telegram { background: #0088cc; }
         .contact-icon-card.email { background: #d44638; }
-        .contact-icon-card.line { background: #06C755; }
+        .contact-icon-card.line { background: #06C755; cursor: pointer; }
         .contact-icon-card i { font-size: 2.2rem; margin-bottom: 12px; display: block; }
         .contact-icon-card:hover { transform: translateY(-6px); filter: brightness(1.05); }
 
-        .modal {
-            display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px);
+        /* QR Modal - pure scanner, no ID text */
+        .qr-modal {
+            display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.9); backdrop-filter: blur(8px);
             justify-content: center; align-items: center; z-index: 2000;
         }
-        .modal-card { background: #fffdf7; max-width: 420px; width: 90%; border-radius: 48px; padding: 32px 24px; text-align: center; }
-        .qr-code img { width: 160px; height: 160px; margin: 16px 0; border-radius: 24px; background: white; padding: 8px; }
-        .line-id-badge { background: #e8e0d0; padding: 12px; border-radius: 60px; margin: 16px 0; font-weight: bold; }
-        .modal-btn { background: #06C755; border: none; padding: 12px 24px; border-radius: 40px; color: white; font-weight: bold; cursor: pointer; margin: 8px; font-family: inherit;}
-        .modal-btn.secondary { background: #aaa; }
-        .copy-btn { background: #f0b27a; color: #2c2c2c; }
+        .qr-modal-card {
+            background: white; max-width: 380px; width: 85%; border-radius: 48px; padding: 32px 24px; text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .qr-modal-card h3 { margin-bottom: 16px; color: #06C755; font-family: 'Montserrat'; font-weight: 600; }
+        .qr-code-img { width: 220px; height: 220px; margin: 16px auto; display: block; border-radius: 24px; background: white; padding: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .close-qr-btn { background: #06C755; border: none; padding: 12px 28px; border-radius: 40px; color: white; font-weight: bold; cursor: pointer; margin-top: 16px; font-family: inherit; }
+        .qr-note { font-size: 13px; color: #555; margin-top: 12px; }
+
         footer { background: #1e1b18; color: #ccc; padding: 40px 0; text-align: center; }
 
         @media (max-width: 900px) {
@@ -123,7 +127,7 @@
 </head>
 <body>
 
-<div id="toastMsg" class="toast-msg">✅ Copied!</div>
+<div id="toastMsg" class="toast-msg">📷 QR code ready</div>
 
 <header>
     <div class="container header-flex">
@@ -136,7 +140,8 @@
             <a href="https://wa.me/917051044406?text=Hello%20OM%20Homestay" target="_blank" class="conn-item whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
             <a href="#" id="telegramBtn" class="conn-item telegram"><i class="fab fa-telegram-plane"></i> Telegram</a>
             <a href="mailto:stanjigmet505@gmail.com" class="conn-item email"><i class="fas fa-envelope"></i> Email</a>
-            <a href="#" id="lineDirectBtn" class="conn-item line"><i class="fab fa-line"></i> LINE (stanzinjigmet05)</a>
+            <!-- LINE button: shows QR scanner on click, no ID text -->
+            <a href="#" id="lineQrBtn" class="conn-item line"><i class="fab fa-line"></i> LINE</a>
         </div>
         <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
         <nav id="mainNav">
@@ -199,7 +204,7 @@
         </div>
     </section>
 
-    <!-- BOOKING SECTION: DIRECT EMAIL (NO THIRD PARTY, NO CONFIRM POPUP) -->
+    <!-- BOOKING SECTION: DIRECT EMAIL -->
     <section class="section booking-section" id="booking">
         <div class="container">
             <div class="section-title">Book Your Moonland Escape</div>
@@ -237,16 +242,21 @@
         </div>
     </section>
 
+    <!-- CONTACT SECTION: LINE button shows QR scanner (no ID) -->
     <section class="section contact-section" id="contact">
         <div class="container" style="text-align: center;">
             <h2 style="font-size: 2rem;">Connect With Us</h2>
             <p style="margin-bottom: 32px;">We are just a message away – choose your favorite channel</p>
             <div class="contact-icons">
-                <a href="tel:+917051044406" class="contact-icon-card call"><i class="fas fa-phone-alt"></i> Call<br><span style="font-size: 0.8rem;">+91 7051044406</span></a>
+                <a href="tel:+917051044406" class="contact-icon-card call"><i class="fas fa-phone-alt"></i> Call<br><span style="font-size: 0.8rem;">Call now</span></a>
                 <a href="https://wa.me/917051044406?text=Hello" target="_blank" class="contact-icon-card whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp<br><span>Instant chat</span></a>
-                <a href="#" id="telegramContactCard" class="contact-icon-card telegram"><i class="fab fa-telegram-plane"></i> Telegram<br><span>+91 7051044406</span></a>
-                <a href="mailto:stanjigmet505@gmail.com" class="contact-icon-card email"><i class="fas fa-envelope"></i> Email<br><span>stanjigmet505</span></a>
-                <a href="#" id="lineContactCardBtn" class="contact-icon-card line"><i class="fab fa-line"></i> LINE<br><span>ID: stanzinjigmet05</span></a>
+                <a href="#" id="telegramContactCard" class="contact-icon-card telegram"><i class="fab fa-telegram-plane"></i> Telegram<br><span>Message us</span></a>
+                <a href="mailto:stanjigmet505@gmail.com" class="contact-icon-card email"><i class="fas fa-envelope"></i> Email<br><span>Send email</span></a>
+                <!-- LINE contact card: click anywhere shows QR scanner, no ID displayed -->
+                <div class="contact-icon-card line" id="lineContactQrBtn" style="cursor: pointer;">
+                    <i class="fab fa-line"></i> LINE<br>
+                    <span>Scan QR to add</span>
+                </div>
             </div>
             <p><i class="fas fa-heart" style="color: #ffaaa5;"></i> We speak English, Hindi & Ladakhi</p>
         </div>
@@ -256,27 +266,17 @@
 <footer>
     <div class="container">
         <p>© 2025 OM Homestay Lamayuru | Managed by Stanzin Jigmet | Moonland, Ladakh</p>
-        <p><i class="fab fa-whatsapp"></i> WhatsApp · <i class="fab fa-telegram"></i> Telegram · <i class="fab fa-line"></i> LINE ID: stanzinjigmet05 · <i class="fas fa-phone"></i> +91 7051044406</p>
+        <p><i class="fab fa-whatsapp"></i> WhatsApp · <i class="fab fa-telegram"></i> Telegram · <i class="fab fa-line"></i> LINE (Scan QR) · <i class="fas fa-phone"></i> Call</p>
     </div>
 </footer>
 
-<!-- LINE MODAL (FIXED QR + DIRECT CHAT) -->
-<div id="lineModal" class="modal">
-    <div class="modal-card">
-        <h3><i class="fab fa-line"></i> LINE Messenger</h3>
-        <div class="qr-code">
-            <img id="lineQrImg" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fline.me%2Fti%2Fp%2F~stanzinjigmet05" alt="LINE QR Code">
-        </div>
-        <div class="line-id-badge">
-            <i class="fab fa-line"></i> LINE ID: <strong>stanzinjigmet05</strong><br>
-            Or search by phone: +91 7051044406
-        </div>
-        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-            <button id="lineModalChatBtn" class="modal-btn">📱 Open LINE & Chat</button>
-            <button id="copyLineIdBtn" class="modal-btn copy-btn">📋 Copy LINE ID</button>
-            <button id="closeModalBtn" class="modal-btn secondary">Close</button>
-        </div>
-        <p style="font-size: 12px; margin-top: 12px;">✔ Tap "Open LINE" to start chat directly (mobile) or scan QR</p>
+<!-- QR MODAL - pure scanner, no ID text anywhere -->
+<div id="qrModal" class="qr-modal">
+    <div class="qr-modal-card">
+        <h3><i class="fab fa-line" style="color:#06C755;"></i> Scan with LINE</h3>
+        <img id="qrModalImg" class="qr-code-img" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fline.me%2Fti%2Fp%2F~stanzinjigmet05" alt="LINE QR Code">
+        <button class="close-qr-btn" id="closeQrModalBtn">Close</button>
+        <p class="qr-note">Open LINE app → Add friends → Scan QR code</p>
     </div>
 </div>
 
@@ -289,14 +289,11 @@
         setTimeout(() => { toast.style.opacity = '0'; }, duration);
     }
 
-    // ========== 1. DIRECT EMAIL BOOKING (NO THIRD PARTY, NO CONFIRM POPUP) ==========
+    // ========== 1. DIRECT EMAIL BOOKING ==========
     const bookingForm = document.getElementById('bookingForm');
     const homestayEmail = 'stanjigmet505@gmail.com';
-
     bookingForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        // Get form values
         const name = document.getElementById('name').value.trim();
         const guestEmail = document.getElementById('guestEmail').value.trim();
         const phone = document.getElementById('phone').value.trim();
@@ -304,83 +301,60 @@
         const checkin = document.getElementById('checkin').value;
         const checkout = document.getElementById('checkout').value;
         const message = document.getElementById('message').value.trim();
-
-        // Basic validation
         if (!name || !guestEmail || !phone || !checkin || !checkout) {
-            showToast("⚠️ Please fill all required fields (Name, Email, Phone, Dates)", 3000);
+            showToast("⚠️ Please fill all required fields", 3000);
             return;
         }
-
-        // Build email subject & body
         const subject = `Booking Request from ${name} - OM Homestay Lamayuru`;
-        const body = `
-Dear OM Homestay Team,
-
-I would like to book a room at your homestay.
-
---- Guest Details ---
-Full Name: ${name}
-Email: ${guestEmail}
-Phone: ${phone}
-Number of Guests: ${guests}
-Check-in Date: ${checkin}
-Check-out Date: ${checkout}
-
---- Special Requests / Message ---
-${message || "No special requests."}
-
-Please confirm availability and total price. Thank you!
-
-Best regards,
-${name}
-        `.trim();
-
-        // Create mailto link - opens user's default email client directly
+        const body = `Dear OM Homestay Team,\n\nI would like to book a room at your homestay.\n\n--- Guest Details ---\nFull Name: ${name}\nEmail: ${guestEmail}\nPhone: ${phone}\nNumber of Guests: ${guests}\nCheck-in Date: ${checkin}\nCheck-out Date: ${checkout}\n\n--- Special Requests / Message ---\n${message || "No special requests."}\n\nPlease confirm availability and total price. Thank you!\n\nBest regards,\n${name}`;
         const mailtoLink = `mailto:${homestayEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        
-        // Open email client
         window.location.href = mailtoLink;
-        
-        // Show a simple, non-intrusive toast notification (no confirm popup)
-        showToast("📧 Opening your email app... Please review and send the email to complete your booking.", 5000);
-        
-        // Optional: reset form? Let's not reset automatically so user doesn't lose data if email fails.
-        // But we can keep it as is. User will send email manually.
-        // No confirm dialog at all – that was the problem.
+        showToast("📧 Opening your email app... Please send the email to complete booking.", 5000);
     });
 
-    // ========== 2. LINE FIXES ==========
+    // ========== 2. LINE QR SCANNER (NO DIRECT LINK, NO ID TEXT) ==========
     const lineUserId = 'stanzinjigmet05';
-    function openLineChatDirect() {
-        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-        const lineDeepLink = `line://ti/p/~${lineUserId}`;
-        const webFallback = `https://line.me/ti/p/~${lineUserId}`;
-        if (isMobile) {
-            window.location.href = lineDeepLink;
-            setTimeout(() => {
-                showToast("⚠️ If LINE doesn't open, install LINE and add ID: " + lineUserId, 4000);
-            }, 800);
-        } else {
-            window.open(webFallback, '_blank');
-            showToast("Desktop: Add friend with ID: " + lineUserId + " or scan QR", 3500);
-        }
+    const qrModal = document.getElementById('qrModal');
+    const qrModalImg = document.getElementById('qrModalImg');
+    
+    // Function to show QR modal
+    function showLineQrModal() {
+        // Refresh QR code URL to ensure it's correct
+        qrModalImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fline.me%2Fti%2Fp%2F~${lineUserId}`;
+        qrModal.style.display = 'flex';
+        showToast("📷 Scan QR code with LINE app", 2000);
     }
-    function copyLineId() {
-        navigator.clipboard.writeText(lineUserId).then(() => {
-            showToast("✅ LINE ID copied: " + lineUserId, 2000);
-        }).catch(() => alert("Copy manually: " + lineUserId));
+    
+    function hideQrModal() {
+        qrModal.style.display = 'none';
     }
-    const lineModal = document.getElementById('lineModal');
-    function showLineModal() { lineModal.style.display = 'flex'; }
-    function hideLineModal() { lineModal.style.display = 'none'; }
-    document.getElementById('lineDirectBtn')?.addEventListener('click', (e) => { e.preventDefault(); showLineModal(); });
-    document.getElementById('lineContactCardBtn')?.addEventListener('click', (e) => { e.preventDefault(); showLineModal(); });
-    document.getElementById('lineModalChatBtn')?.addEventListener('click', () => { openLineChatDirect(); hideLineModal(); });
-    document.getElementById('copyLineIdBtn')?.addEventListener('click', () => { copyLineId(); });
-    document.getElementById('closeModalBtn')?.addEventListener('click', hideLineModal);
-    window.addEventListener('click', (e) => { if (e.target === lineModal) hideLineModal(); });
-
-    // ========== 3. TELEGRAM FIX (Direct chat) ==========
+    
+    // Top header LINE button
+    const lineQrBtn = document.getElementById('lineQrBtn');
+    if (lineQrBtn) {
+        lineQrBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            showLineQrModal();
+        });
+    }
+    
+    // Contact section LINE card
+    const lineContactQrBtn = document.getElementById('lineContactQrBtn');
+    if (lineContactQrBtn) {
+        lineContactQrBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            showLineQrModal();
+        });
+    }
+    
+    // Close modal buttons & outside click
+    const closeBtn = document.getElementById('closeQrModalBtn');
+    if (closeBtn) closeBtn.addEventListener('click', hideQrModal);
+    window.addEventListener('click', (e) => {
+        if (e.target === qrModal) hideQrModal();
+    });
+    
+    // ========== 3. TELEGRAM DIRECT CHAT (NO ID DISPLAYED) ==========
     const telegramPhone = '+917051044406';
     function openTelegramChat() {
         const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
@@ -388,20 +362,16 @@ ${name}
         if (isMobile) {
             window.location.href = tgDeepLink;
             setTimeout(() => {
-                showToast("📲 If Telegram doesn't open, copy number: " + telegramPhone, 4000);
-                // No confirm popup, just a toast and optional silent copy
-                navigator.clipboard.writeText(telegramPhone).catch(() => {});
-            }, 1000);
+                showToast("📲 Opening Telegram...", 3000);
+            }, 500);
         } else {
             window.open(`https://web.telegram.org/k/`, '_blank');
-            navigator.clipboard.writeText(telegramPhone).then(() => {
-                showToast("📋 Phone number copied: " + telegramPhone + " — Paste in Telegram search", 4000);
-            }).catch(() => {});
+            showToast("📋 Telegram web opened", 4000);
         }
     }
     document.getElementById('telegramBtn')?.addEventListener('click', (e) => { e.preventDefault(); openTelegramChat(); });
     document.getElementById('telegramContactCard')?.addEventListener('click', (e) => { e.preventDefault(); openTelegramChat(); });
-
+    
     // ========== 4. Menu toggle & smooth scroll ==========
     const toggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('mainNav');
@@ -418,10 +388,6 @@ ${name}
             }
         });
     });
-
-    // QR code refresh
-    const qrImg = document.getElementById('lineQrImg');
-    if(qrImg) qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fline.me%2Fti%2Fp%2F~${lineUserId}`;
 </script>
 </body>
 </html>
