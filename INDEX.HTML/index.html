@@ -1,2345 +1,305 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Experience authentic Ladakhi hospitality at OM Homestay in Lamayuru. Enjoy breathtaking Himalayan views, comfortable rooms, and cultural experiences. Book your stay today!">
-    <title>LAMAYURU OM HOMESTAY - Himalayan Luxury Retreat</title>
-    
-    <!-- Preconnect and preload critical resources -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    
-    <!-- Font Awesome with defer -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    
-    <!-- Google Fonts with defer -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    
-    <!-- Tibetan Font -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>OM Homestay Lamayuru | Colorful Connection Options</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tibetan:wght@400;700&display=swap" rel="stylesheet">
-    
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏔️</text></svg>">
-    
-    <!-- Inline critical CSS -->
     <style>
-        :root {
-            --primary: #8d6e63;
-            --primary-dark: #5d4037;
-            --primary-light: #be9c91;
-            --secondary: #e0e0e0;
-            --accent: #c2185b;
-            --accent-light: #f06292;
-            --light: #f5f5f5;
-            --dark: #212121;
-            --gold: #b08d26;
-            --gold-light: #d4af37;
-            --sky-blue: #87CEEB;
-            --mountain-gray: #8a9a5b;
-            --shadow: 0 5px 15px rgba(0,0,0,0.1);
-            --shadow-heavy: 0 15px 30px rgba(0,0,0,0.15);
-            --transition: all 0.3s ease;
-            --transition-slow: all 0.5s ease;
-            --border-radius: 10px;
-            --border-radius-lg: 15px;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-        
-        h1, h2, h3, h4, h5 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-        }
-        
-        /* Tibetan Om Font Style */
-        .tibetan-om {
-            font-family: 'Noto Sans Tibetan', 'Microsoft Himalaya', 'Tibetan Machine Uni', sans-serif;
-            font-weight: bold;
-        }
-        
-        /* Enhanced Header */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; line-height: 1.5; scroll-behavior: smooth; background: #fefaf5; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; }
+        .tibetan-om { font-family: 'Noto Sans Tibetan', sans-serif; }
+
+        /* Header */
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: var(--shadow);
-            z-index: 1000;
-            transition: var(--transition);
-            padding: 10px 0;
+            position: fixed; top: 0; width: 100%; background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.05); z-index: 1000; padding: 12px 0;
         }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-            flex-wrap: wrap;
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .header-flex { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo-icon { width: 48px; height: 48px; background: linear-gradient(135deg, #e0a800, #b37b2e); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .logo-icon .tibetan-om { font-size: 1.8rem; color: white; }
+        .logo h1 { font-size: 1.4rem; color: #4a3729; }
+
+        /* COLORFUL CONNECTION BAR */
+        .connection-bar {
+            display: flex; flex-wrap: wrap; gap: 12px; background: #fff5e8; padding: 8px 20px; border-radius: 60px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            flex: 1;
-            min-width: 250px;
+        .conn-item {
+            display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem;
+            padding: 8px 18px; border-radius: 40px; transition: 0.2s; background: white; color: #2c2c2c; box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
-        
-        .logo-img {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #b08d26 0%, #8d6e63 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            position: relative;
-            overflow: hidden;
-            border: 3px solid var(--gold);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-        
-        /* FIXED: Centered Tibetan OM logo */
-        .logo-img .tibetan-om {
-            font-size: 2.5rem;
-            color: white;
-            font-weight: bold;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            line-height: 1;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            position: relative;
-            top: 0;
-        }
-        
-        .logo h1 {
-            font-size: 1.8rem;
-            color: var(--primary-dark);
-            white-space: nowrap;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            flex-wrap: wrap;
-        }
-        
-        nav ul li {
-            margin: 0 10px;
-        }
-        
-        nav ul li a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            transition: var(--transition);
-            position: relative;
-            padding: 5px 0;
-        }
-        
-        nav ul li a:hover {
-            color: var(--primary);
-        }
-        
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gold);
-            transition: var(--transition);
-        }
-        
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-        
-        .contact-info {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .contact-info a {
-            text-decoration: none;
-            color: var(--primary);
-            font-weight: 600;
-            transition: var(--transition);
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .contact-info a:hover {
-            color: var(--accent);
-        }
-        
-        .whatsapp-btn {
-            background: #25D366;
-            color: #fff;
-            padding: 8px 15px;
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            font-weight: 500;
-            transition: var(--transition);
-            white-space: nowrap;
-            gap: 8px;
-        }
-        
-        .whatsapp-btn:hover {
-            background: #128C7E;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-        }
-        
-        .email-btn {
-            background: var(--gold);
-            color: #fff;
-            padding: 8px 15px;
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            font-weight: 500;
-            transition: var(--transition);
-            white-space: nowrap;
-            gap: 8px;
-        }
-        
-        .email-btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-        }
-        
-        .menu-toggle {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: var(--primary-dark);
-            margin-left: 15px;
-        }
-        
-        /* WhatsApp Floating Button */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 80px;
-            right: 20px;
-            background: #25D366;
-            color: #fff;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow-heavy);
-            z-index: 100;
-            transition: var(--transition);
-            animation: pulse 2s infinite;
-        }
-        
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-        }
-        
-        .whatsapp-float i {
-            font-size: 1.8rem;
-        }
-        
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
-        }
-        
-        /* Enhanced Hero Section with Lamayuru Moonland Landscape */
+        /* individual brand colors */
+        .conn-item.call { background: #2c6e9e; color: white; }
+        .conn-item.whatsapp { background: #25D366; color: white; }
+        .conn-item.telegram { background: #0088cc; color: white; }
+        .conn-item.email { background: #d44638; color: white; }
+        .conn-item.line { background: #06C755; color: white; }
+        .conn-item:hover { transform: translateY(-2px); filter: brightness(1.05); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+
+        nav ul { display: flex; list-style: none; gap: 28px; }
+        nav a { text-decoration: none; font-weight: 500; color: #3a2c21; }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* Hero section */
         .hero {
-            height: 100vh;
-            background: 
-                linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-                url('https://images.unsplash.com/photo-1580137189272-c9379f8864fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') 
-                center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #fff;
-            padding: 0 20px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(141,110,99,0.2) 0%, rgba(176,141,38,0.2) 100%);
-            z-index: 0;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            animation: fadeInUp 1s ease-out;
-            padding: 30px;
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: var(--border-radius-lg);
-            backdrop-filter: blur(5px);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero h2 {
-            font-size: clamp(2.2rem, 5vw, 3.5rem);
-            margin-bottom: 1.5rem;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-            line-height: 1.2;
-        }
-        
-        .hero p {
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-        }
-        
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .cta-btn {
-            display: inline-block;
-            background: var(--gold);
-            color: #fff;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition);
-            border: 2px solid var(--gold);
-            margin: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            min-width: 200px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: var(--transition-slow);
-        }
-        
-        .cta-btn:hover::before {
-            left: 100%;
-        }
-        
-        .cta-btn:hover {
-            background: transparent;
-            color: var(--gold);
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-heavy);
-        }
-        
-        .cta-btn.secondary {
-            background: transparent;
-            border: 2px solid #fff;
-        }
-        
-        .cta-btn.secondary:hover {
-            background: #fff;
-            color: var(--dark);
-        }
-        
-        .scroll-down {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #fff;
-            font-size: 2rem;
-            animation: bounce 2s infinite;
-            cursor: pointer;
-            z-index: 1;
-        }
-        
-        /* Enhanced Sections */
-        .section {
-            padding: 100px 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-header h2 {
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
-            position: relative;
-            display: inline-block;
-            margin-bottom: 20px;
-            color: var(--primary-dark);
-        }
-        
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--gold);
-        }
-        
-        .section-header p {
-            max-width: 700px;
-            margin: 25px auto 0;
-            color: #666;
-            font-size: clamp(0.9rem, 2vw, 1.1rem);
-        }
-        
-        /* Enhanced About Section */
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            flex-wrap: wrap;
-        }
-        
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .about-text h3 {
-            font-size: clamp(1.5rem, 3vw, 1.8rem);
-            margin-bottom: 20px;
-            color: var(--primary-dark);
-        }
-        
-        .about-text p {
-            margin-bottom: 20px;
-            line-height: 1.8;
-            font-size: clamp(0.95rem, 2vw, 1.05rem);
-        }
-        
-        .about-image {
-            flex: 1;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-heavy);
-            position: relative;
-            transition: var(--transition);
-            min-width: 300px;
-            height: 400px;
-            background: linear-gradient(135deg, var(--primary-light) 0%, var(--gold-light) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            width: 100%;
-            height: 100%;
-            border: 3px solid var(--gold);
-            border-radius: var(--border-radius);
-            z-index: -1;
-        }
-        
-        .about-image .tibetan-om {
-            font-size: 8rem;
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .about-image:hover {
-            transform: translateY(-10px);
-        }
-        
-        /* Enhanced Manager Section */
-        .manager {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            background: #fff;
-            border-radius: var(--border-radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-heavy);
-            margin: 80px 0;
-            transition: var(--transition);
-            flex-wrap: wrap;
-            position: relative;
-        }
-        
-        .manager::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(176,141,38,0.1) 0%, rgba(141,110,99,0.1) 100%);
-            z-index: 0;
-        }
-        
-        .manager:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-        
-        .manager-image {
-            flex: 1;
-            min-height: 400px;
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-            min-width: 300px;
-            position: relative;
-            z-index: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .manager-image .tibetan-om {
-            font-size: 6rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        .manager-info {
-            flex: 1;
-            padding: 40px;
-            min-width: 300px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .manager-info h3 {
-            font-size: clamp(1.5rem, 3vw, 1.8rem);
-            color: var(--primary-dark);
-            margin-bottom: 10px;
-        }
-        
-        .manager-position {
-            color: var(--gold);
-            font-weight: 600;
-            margin-bottom: 20px;
-            display: block;
-            font-size: clamp(1rem, 2vw, 1.1rem);
-        }
-        
-        .manager-info p {
-            margin-bottom: 20px;
-            line-height: 1.8;
-            font-size: clamp(0.95rem, 2vw, 1.05rem);
-        }
-        
-        /* Enhanced Rooms Section */
-        .rooms {
-            background: linear-gradient(135deg, var(--secondary) 0%, #f0f0f0 100%);
-            position: relative;
-        }
-        
-        .rooms::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23ffffff" opacity="0.1"><polygon points="0,0 100,0 100,100"/></svg>');
-            background-size: 200px 200px;
-        }
-        
-        .rooms-grid {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .room-card {
-            background: #fff;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            position: relative;
-            max-width: 500px;
-            width: 100%;
-        }
-        
-        .room-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--gold), var(--primary));
-        }
-        
-        .room-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-heavy);
-        }
-        
-        .room-image {
-            height: 300px;
-            overflow: hidden;
-            flex-shrink: 0;
-            position: relative;
-            background: linear-gradient(135deg, #8a9a5b 0%, #5d4037 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .room-image .tibetan-om {
-            font-size: 5rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        .room-info {
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-        
-        .room-info h3 {
-            font-size: clamp(1.3rem, 2.5vw, 1.5rem);
-            margin-bottom: 10px;
-            color: var(--primary-dark);
-        }
-        
-        .room-features {
-            display: flex;
-            flex-wrap: wrap;
-            margin: 15px 0;
-            gap: 15px;
-        }
-        
-        .room-feature {
-            display: flex;
-            align-items: center;
-            color: #666;
-            font-size: clamp(0.85rem, 2vw, 0.95rem);
-        }
-        
-        .room-feature i {
-            color: var(--gold);
-            margin-right: 8px;
-            font-size: 1.1rem;
-        }
-        
-        .room-price {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: auto;
-            padding-top: 15px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .price {
-            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-            font-weight: 600;
-            color: var(--primary);
-        }
-        
-        /* Enhanced Booking Section */
-        .booking {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7ec 100%);
-            position: relative;
-        }
-        
-        .booking-form {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 40px;
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-heavy);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .booking-form::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--gold), var(--primary));
-        }
-        
-        .booking-form:hover {
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-        
-        .form-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .form-header h3 {
-            font-size: clamp(1.5rem, 3vw, 1.8rem);
-            color: var(--primary-dark);
-        }
-        
-        .form-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .form-group {
-            flex: 1;
-            min-width: 250px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--dark);
-        }
-        
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 14px 18px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: clamp(0.95rem, 2vw, 1.05rem);
-            transition: var(--transition);
-        }
-        
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            border-color: var(--gold);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(212,175,55,0.2);
-        }
-        
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-        
-        .submit-btn {
-            display: block;
-            width: 100%;
-            background: var(--gold);
-            color: #fff;
-            border: none;
-            padding: 16px;
-            border-radius: 8px;
-            font-size: clamp(1rem, 2.5vw, 1.1rem);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-top: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .submit-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: var(--transition-slow);
-        }
-        
-        .submit-btn:hover::before {
-            left: 100%;
-        }
-        
-        .submit-btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-        }
-        
-        /* Lamayuru Specific Image Classes - REMOVED background images */
-        
-        /* Enhanced Contact Section */
-        .contact {
-            background: 
-                linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-                linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-            color: #fff;
-            text-align: center;
-            position: relative;
-        }
-        
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(176,141,38,0.2) 0%, rgba(141,110,99,0.2) 100%);
-        }
-        
-        .contact .section-header h2 {
-            color: #fff;
-        }
-        
-        .contact .section-header h2::after {
-            background: var(--gold);
-        }
-        
-        .contact-info-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 50px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .contact-item {
-            background: rgba(255,255,255,0.1);
-            padding: 30px;
-            border-radius: var(--border-radius);
-            width: 280px;
-            backdrop-filter: blur(5px);
-            transition: var(--transition);
-            text-align: center;
-        }
-        
-        .contact-item:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-10px);
-        }
-        
-        .contact-item i {
-            font-size: clamp(2rem, 5vw, 2.5rem);
-            color: var(--gold);
-            margin-bottom: 20px;
-        }
-        
-        .contact-item h3 {
-            font-size: clamp(1.3rem, 3vw, 1.5rem);
-            margin-bottom: 15px;
-        }
-        
-        .contact-item p {
-            font-size: clamp(1rem, 2.5vw, 1.1rem);
-            margin-bottom: 10px;
-        }
-        
-        /* Enhanced Footer */
-        footer {
-            background: var(--dark);
-            color: #fff;
-            padding: 60px 5% 30px;
-            position: relative;
-        }
-        
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--gold), var(--primary));
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .footer-col h3 {
-            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background: var(--gold);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-links a {
-            color: #ddd;
-            text-decoration: none;
-            transition: var(--transition);
-            font-size: clamp(0.9rem, 2vw, 1rem);
-            display: inline-block;
-        }
-        
-        .footer-links a:hover {
-            color: var(--gold);
-            padding-left: 5px;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: #333;
-            border-radius: 50%;
-            color: #fff;
-            transition: var(--transition);
-            font-size: 1.2rem;
-        }
-        
-        .social-links a:hover {
-            background: var(--gold);
-            transform: translateY(-5px);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 40px;
-            margin-top: 40px;
-            border-top: 1px solid #444;
-            color: #999;
-            font-size: clamp(0.8rem, 2vw, 0.9rem);
-        }
-        
-        /* FIXED: Footer logo alignment */
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .footer-logo-img {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #b08d26 0%, #8d6e63 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            border: 2px solid var(--gold);
-        }
-        
-        .footer-logo-img .tibetan-om {
-            font-size: 2rem;
-            color: white;
-            font-weight: bold;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            line-height: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .footer-logo h3 {
-            margin: 0;
-            padding: 0;
-            border: none;
-        }
-        
-        .footer-logo h3::after {
-            display: none;
-        }
-        
-        /* Enhanced Location Section */
-        .location {
-            padding: 100px 5%;
-            background-color: #f9f9f9;
-            position: relative;
-        }
-        
-        .location::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23e0e0e0" opacity="0.1"><polygon points="0,100 100,0 100,100"/></svg>');
-            background-size: 200px 200px;
-        }
-        
-        .location-container {
-            display: flex;
-            gap: 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .location-details {
-            flex: 1;
-            padding: 30px;
-            background: #fff;
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            min-width: 300px;
-        }
-        
-        .location-details:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-heavy);
-        }
-        
-        .location-details h3 {
-            font-size: clamp(1.5rem, 3vw, 1.8rem);
-            color: var(--primary-dark);
-            margin-bottom: 20px;
-        }
-        
-        .address-card {
-            background: rgba(141,110,99,0.05);
-            border-left: 4px solid var(--gold);
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .address-card p {
-            margin-bottom: 8px;
-            font-size: clamp(1rem, 2.5vw, 1.1rem);
-        }
-        
-        .location-features {
-            margin-top: 30px;
-        }
-        
-        .location-feature {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .location-feature i {
-            color: var(--gold);
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
-            margin-right: 15px;
-            width: 30px;
-            text-align: center;
-        }
-        
-        .location-feature div h4 {
-            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-            margin-bottom: 5px;
-        }
-        
-        .location-feature div p {
-            font-size: clamp(0.9rem, 2vw, 1rem);
-        }
-        
-        .location-map {
-            flex: 1;
-            border-radius: var(--border-radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            height: 500px;
-            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-dark) 100%);
-            position: relative;
-            transition: var(--transition);
-            min-width: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .location-map:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-heavy);
-        }
-        
-        .map-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0,0,0,0.5);
-            color: #fff;
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
-            text-align: center;
-            padding: 20px;
-            cursor: pointer;
-            transition: var(--transition);
-            flex-direction: column;
-        }
-        
-        .map-overlay:hover {
-            background: rgba(0,0,0,0.6);
-        }
-        
-        .directions {
-            background: #fff;
-            padding: 30px;
-            border-radius: var(--border-radius-lg);
-            margin-top: 30px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-        
-        .directions:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        .directions h4 {
-            font-size: clamp(1.2rem, 3vw, 1.4rem);
-            color: var(--primary-dark);
-            margin-bottom: 20px;
-            border-bottom: 2px solid var(--gold);
-            padding-bottom: 10px;
-        }
-        
-        .transport-option {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .transport-option:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        
-        .transport-option h5 {
-            display: flex;
-            align-items: center;
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-size: clamp(1rem, 2.5vw, 1.1rem);
-        }
-        
-        .transport-option h5 i {
-            margin-right: 10px;
-            color: var(--gold);
-        }
-        
-        .transport-option p {
-            font-size: clamp(0.95rem, 2vw, 1.05rem);
-            line-height: 1.7;
-        }
-        
-        /* New Sections */
-        .testimonials {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            position: relative;
-        }
-        
-        .testimonials-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-        }
-        
-        .testimonial-card {
-            background: #fff;
-            border-radius: var(--border-radius-lg);
-            padding: 30px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            max-width: 350px;
-            position: relative;
-        }
-        
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            font-size: 4rem;
-            color: rgba(176,141,38,0.2);
-            font-family: Georgia, serif;
-        }
-        
-        .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-heavy);
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .author-image {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--gold) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-        }
-        
-        .author-image .tibetan-om {
-            font-size: 1.5rem;
-            color: white;
-        }
-        
-        .author-info h4 {
-            margin-bottom: 5px;
-            color: var(--primary-dark);
-        }
-        
-        .author-info p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .attractions {
-            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-            position: relative;
-        }
-        
-        .attractions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .attraction-card {
-            background: #fff;
-            border-radius: var(--border-radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-        
-        .attraction-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-heavy);
-        }
-        
-        .attraction-image {
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--gold) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .attraction-image .tibetan-om {
-            font-size: 4rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        .attraction-info {
-            padding: 20px;
-        }
-        
-        .attraction-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--primary-dark);
-        }
-        
-        .attraction-info p {
-            color: #666;
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-        
-        .attraction-distance {
-            display: flex;
-            align-items: center;
-            color: var(--gold);
-            font-weight: 600;
-        }
-        
-        .attraction-distance i {
-            margin-right: 8px;
-        }
-        
-        /* Weather Widget */
-        .weather-widget {
-            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
-            color: white;
-            border-radius: var(--border-radius-lg);
-            padding: 20px;
-            margin: 30px 0;
-            box-shadow: var(--shadow);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        
-        .weather-info {
-            display: flex;
-            align-items: center;
-        }
-        
-        .weather-icon {
-            font-size: 3rem;
-            margin-right: 20px;
-        }
-        
-        .weather-details h3 {
-            margin-bottom: 5px;
-        }
-        
-        .weather-temp {
-            font-size: 2rem;
-            font-weight: 700;
-        }
-        
-        .weather-extras {
-            text-align: right;
-        }
-        
-        .weather-extras p {
-            margin-bottom: 5px;
-        }
-        
-        /* Floating Booking Widget */
-        .floating-booking {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--gold);
-            color: white;
-            padding: 15px 20px;
-            border-radius: 50px;
-            box-shadow: var(--shadow-heavy);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .floating-booking:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-        
-        .floating-booking i {
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0) translateX(-50%);
-            }
-            40% {
-                transform: translateY(-20px) translateX(-50%);
-            }
-            60% {
-                transform: translateY(-10px) translateX(-50%);
-            }
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .header-container {
-                padding: 0 3%;
-            }
-            
-            .section {
-                padding: 80px 3%;
-            }
-        }
-        
-        @media (max-width: 992px) {
-            .about-content, .manager, .location-container {
-                flex-direction: column;
-            }
-            
-            .manager-image {
-                min-height: 350px;
-                width: 100%;
-            }
-            
-            .form-row {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .location-map {
-                height: 400px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .header-container {
-                padding: 10px 5%;
-            }
-            
-            .menu-toggle {
-                display: block;
-            }
-            
-            nav {
-                width: 100%;
-                margin: 15px 0;
-                display: none;
-            }
-            
-            nav.active {
-                display: block;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-                gap: 5px;
-            }
-            
-            nav ul li {
-                margin: 8px 0;
-            }
-            
-            .contact-info {
-                justify-content: center;
-                margin-top: 15px;
-                width: 100%;
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-            
-            .whatsapp-btn, .email-btn {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .hero {
-                height: 90vh;
-            }
-            
-            .hero-content {
-                padding: 20px 15px;
-            }
-            
-            .hero h2 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .section {
-                padding: 60px 5%;
-            }
-            
-            .booking-form {
-                padding: 25px;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .contact-info-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
-            
-            .contact-item {
-                width: 100%;
-                max-width: 350px;
-            }
-            
-            .room-price {
-                justify-content: center;
-            }
-            
-            .room-price .cta-btn {
-                width: 100%;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .whatsapp-float {
-                bottom: 100px;
-                right: 15px;
-                width: 50px;
-                height: 50px;
-            }
-            
-            .whatsapp-float i {
-                font-size: 1.5rem;
-            }
-            
-            .floating-booking {
-                bottom: 15px;
-                right: 15px;
-                padding: 12px 15px;
-                font-size: 0.9rem;
-            }
-            
-            .about-image .tibetan-om {
-                font-size: 6rem;
-            }
-            
-            .manager-image .tibetan-om {
-                font-size: 4rem;
-            }
-            
-            .room-image .tibetan-om {
-                font-size: 3.5rem;
-            }
-            
-            .attraction-image .tibetan-om {
-                font-size: 3rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .logo h1 {
-                font-size: 1.5rem;
-            }
-            
-            .logo-img {
-                width: 50px;
-                height: 50px;
-            }
-            
-            .logo-img .tibetan-om {
-                font-size: 2rem;
-            }
-            
-            .contact-info a {
-                font-size: 0.9rem;
-            }
-            
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            
-            .cta-btn {
-                padding: 12px 20px;
-                font-size: 0.9rem;
-                min-width: auto;
-                width: 100%;
-            }
-            
-            .location-details, .directions {
-                padding: 20px;
-            }
-            
-            .section-header h2::after {
-                width: 60px;
-            }
-            
-            .manager-info {
-                padding: 25px;
-            }
-            
-            .about-image .tibetan-om {
-                font-size: 4rem;
-            }
+            min-height: 100vh; background: linear-gradient(120deg, #ff7e5f, #feb47b), url('https://images.unsplash.com/photo-1580137189272-c9379f8864fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+            background-blend-mode: overlay; display: flex; align-items: center; text-align: center; color: white; margin-top: 80px;
+        }
+        .hero-content { max-width: 750px; margin: 0 auto; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); padding: 40px; border-radius: 50px; }
+        .hero h2 { font-size: clamp(2rem, 6vw, 3.5rem); margin-bottom: 20px; }
+        .btn-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        .btn { display: inline-block; padding: 12px 32px; border-radius: 50px; font-weight: 700; text-decoration: none; transition: 0.2s; background: #e0a800; color: white; border: none; }
+        .btn-outline { background: transparent; border: 2px solid white; }
+        .btn:hover { transform: translateY(-3px); filter: brightness(1.05); }
+
+        /* Sections with subtle colors */
+        .section { padding: 90px 0; }
+        .about-section { background: linear-gradient(145deg, #d9e4f5, #f5e6d3); }
+        .rooms-section { background: linear-gradient(145deg, #ffe6e6, #fff0db); }
+        .testimonials-section { background: linear-gradient(145deg, #e0f7fa, #f1f8e9); }
+        .booking-section { background: linear-gradient(145deg, #fde2e4, #fff5e6); }
+        .attractions-section { background: linear-gradient(145deg, #e8f0fe, #fff1e0); }
+        .contact-section { background: linear-gradient(135deg, #2c3e50, #1a2a3a); color: white; }
+        .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 16px; color: #3e2c1e; }
+
+        .about-grid, .rooms-grid, .testimonial-grid, .attraction-grid { display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; }
+        .about-text { flex: 1; min-width: 280px; }
+        .about-image { flex: 1; background: linear-gradient(135deg, #f9b32f, #d97a2b); border-radius: 48px; min-height: 360px; display: flex; align-items: center; justify-content: center; }
+        .room-card, .testimonial-card, .attraction-card { background: white; border-radius: 32px; padding: 28px; max-width: 380px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .room-img { height: 220px; background: linear-gradient(145deg, #b9ad6a, #7e5a44); border-radius: 24px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+        .room-price { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; flex-wrap: wrap; }
+
+        .booking-form { max-width: 700px; margin: 0 auto; background: white; padding: 40px; border-radius: 48px; box-shadow: 0 20px 35px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 20px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px 20px; border-radius: 60px; border: 1px solid #e2d5c6; background: #fefcf9; }
+        .submit-btn { background: #e0a800; color: white; width: 100%; padding: 14px; border-radius: 60px; font-weight: bold; border: none; cursor: pointer; }
+
+        /* COLORFUL CONTACT ICONS (brand colors) */
+        .contact-icons {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin: 40px 0 20px;
+        }
+        .contact-icon-card {
+            border-radius: 40px; padding: 20px 28px; width: 180px; text-align: center; text-decoration: none;
+            transition: 0.2s; color: white; font-weight: 600;
+        }
+        /* individual background colors for each contact method */
+        .contact-icon-card.call { background: #2c6e9e; }
+        .contact-icon-card.whatsapp { background: #25D366; }
+        .contact-icon-card.telegram { background: #0088cc; }
+        .contact-icon-card.email { background: #d44638; }
+        .contact-icon-card.line { background: #06C755; }
+        .contact-icon-card i { font-size: 2.2rem; margin-bottom: 12px; display: block; }
+        .contact-icon-card:hover { transform: translateY(-6px); filter: brightness(1.05); }
+
+        /* LINE Modal */
+        .modal {
+            display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
+            justify-content: center; align-items: center; z-index: 2000;
+        }
+        .modal-card { background: #fffdf7; max-width: 400px; width: 90%; border-radius: 48px; padding: 32px 24px; text-align: center; }
+        .qr-code img { width: 160px; height: 160px; margin: 16px 0; border-radius: 24px; }
+        .line-id-badge { background: #e8e0d0; padding: 12px; border-radius: 60px; margin: 16px 0; font-weight: bold; }
+        .modal-btn { background: #06C755; border: none; padding: 12px 24px; border-radius: 40px; color: white; font-weight: bold; cursor: pointer; margin: 8px; }
+        footer { background: #1e1b18; color: #ccc; padding: 40px 0; text-align: center; }
+
+        @media (max-width: 900px) {
+            .header-flex { flex-direction: column; align-items: stretch; }
+            nav { display: none; }
+            nav.active { display: block; }
+            nav ul { flex-direction: column; align-items: center; gap: 12px; margin-top: 20px; }
+            .menu-toggle { display: block; }
+            .connection-bar { justify-content: center; }
+            .hero { margin-top: 150px; }
         }
     </style>
 </head>
 <body>
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/917051044406?text=Hello%20OM%20Homestay%20Lamayuru!%20I%20would%20like%20to%20inquire%20about%20booking%20a%20stay." class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
-        <i class="fab fa-whatsapp" aria-hidden="true"></i>
-    </a>
-    
-    <!-- Main Website -->
-    <div id="main-site">
-        <!-- Header -->
-        <header>
-            <div class="header-container">
-                <div class="logo">
-                    <div class="logo-img" aria-label="Tibetan OM Symbol Logo">
-                        <span class="tibetan-om">ཨོཾ</span>
-                    </div>
-                    <h1>OM Homestay Lamayuru</h1>
-                </div>
-                
-                <nav id="main-nav">
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#rooms">Room</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
-                        <li><a href="#booking">Booking</a></li>
-                        <!-- REMOVED: Gallery link -->
-                        <li><a href="#attractions">Attractions</a></li>
-                        <li><a href="#location">Location</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-                
-                <div class="contact-info">
-                    <a href="tel:+917051044406" aria-label="Call us"><i class="fas fa-phone" aria-hidden="true"></i> +91 7051044406</a>
-                    <a href="https://wa.me/917051044406?text=Hello%20OM%20Homestay%20Lamayuru!%20I%20would%20like%20to%20inquire%20about%20booking%20a%20stay." class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
-                        <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
-                    </a>
-                    <a href="mailto:stanjigmet505@gmail.com" class="email-btn" aria-label="Send Email">
-                        <i class="fas fa-envelope" aria-hidden="true"></i> Email
-                    </a>
-                </div>
-                
-                <div class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-                    <i class="fas fa-bars" aria-hidden="true"></i>
-                </div>
+
+<header>
+    <div class="container header-flex">
+        <div class="logo">
+            <div class="logo-icon"><span class="tibetan-om">ཨོཾ</span></div>
+            <h1>OM Homestay Lamayuru</h1>
+        </div>
+        <!-- ALL CONNECTION OPTIONS – COLORFUL & ATTRACTIVE -->
+        <div class="connection-bar">
+            <a href="tel:+917051044406" class="conn-item call"><i class="fas fa-phone-alt"></i> Call</a>
+            <a href="https://wa.me/917051044406?text=Hello%20OM%20Homestay" target="_blank" class="conn-item whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="#" id="telegramBtn" class="conn-item telegram"><i class="fab fa-telegram-plane"></i> Telegram</a>
+            <a href="mailto:stanjigmet505@gmail.com" class="conn-item email"><i class="fas fa-envelope"></i> Email</a>
+            <a href="#" id="lineDirectBtn" class="conn-item line"><i class="fab fa-line"></i> LINE (stanzinjigmet05)</a>
+        </div>
+        <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+        <nav id="mainNav">
+            <ul><li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#rooms">Rooms</a></li><li><a href="#testimonials">Testimonials</a></li><li><a href="#booking">Booking</a></li><li><a href="#attractions">Attractions</a></li><li><a href="#contact">Contact</a></li></ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h2>Lamayuru Serenity at Moonland</h2>
+            <p>Authentic Ladakhi homestay · Moonland views · Warm hospitality · Connect via Telegram & LINE</p>
+            <div class="btn-group">
+                <a href="#booking" class="btn">BOOK YOUR STAY</a>
+                <a href="https://wa.me/917051044406" class="btn btn-outline" target="_blank">CHAT ON WHATSAPP</a>
             </div>
-        </header>
-        
-        <!-- Hero Section -->
-        <section class="hero" id="home">
-            <div class="hero-content">
-                <h2>Experience Himalayan Serenity at Lamayuru Moonland</h2>
-                <p>Discover authentic Ladakhi hospitality amidst the mystical moon-like landscapes of Lamayuru. Traditional comfort, breathtaking views of ancient monasteries, and unforgettable memories await you.</p>
-                <div class="cta-buttons">
-                    <a href="#booking" class="cta-btn">Book Your Stay</a>
-                    <a href="https://wa.me/917051044406?text=Hello%20OM%20Homestay%20Lamayuru!%20I%20would%20like%20to%20inquire%20about%20booking%20a%20stay." class="cta-btn secondary" target="_blank">Chat on WhatsApp</a>
-                </div>
-            </div>
-            <div class="scroll-down" onclick="document.querySelector('#about').scrollIntoView({ behavior: 'smooth' })" aria-label="Scroll down">
-                <i class="fas fa-chevron-down" aria-hidden="true"></i>
-            </div>
-        </section>
-        
-        <!-- About Section -->
-        <section class="section" id="about">
-            <div class="section-header">
-                <h2>About Our Homestay</h2>
-                <p>Discover the authentic beauty of Ladakh's Moonland with our warm hospitality</p>
-            </div>
-            
-            <div class="about-content">
+        </div>
+    </section>
+
+    <section class="section about-section" id="about">
+        <div class="container">
+            <div class="section-title">About OM Homestay</div>
+            <div class="about-grid">
                 <div class="about-text">
-                    <h3>Your Himalayan Sanctuary in Moonland</h3>
-                    <p>Nestled in the heart of Lamayuru, famously known as the "Moonland" for its unique lunar landscapes and ancient monastery, OM Homestay offers a perfect blend of traditional Ladakhi culture and authentic comfort.</p>
-                    <p>Our homestay is family-run, ensuring personalized attention and genuine experiences. Wake up to breathtaking views of the Himalayan mountains and the mystical moon-like terrain, savor traditional Ladakhi cuisine, and immerse yourself in the tranquility of this spiritual land.</p>
-                    <p>Whether you're a trekker seeking adventure or a traveler looking for peace, our homestay provides the perfect base to explore the wonders of Ladakh's Moonland region.</p>
-                    <div style="margin-top: 20px;">
-                        <a href="https://wa.me/917051044406?text=Hello%20OM%20Homestay!%20I%20would%20like%20to%20learn%20more%20about%20your%20homestay%20and%20availability." class="whatsapp-btn" target="_blank" style="display: inline-flex;">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Chat with us on WhatsApp
-                        </a>
-                    </div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Your Himalayan Sanctuary</h3>
+                    <p>Nestled in the mystical Moonland of Lamayuru, OM Homestay offers traditional Ladakhi hospitality with modern comfort. Wake up to surreal lunar landscapes, enjoy organic local meals, and explore the ancient Lamayuru Monastery just a walk away.</p>
+                    <p>Family-run and eco-conscious, we ensure every guest experiences the tranquility of the Himalayas. Connect with us instantly through any platform – Call, WhatsApp, Telegram, Email, or LINE.</p>
                 </div>
-                <div class="about-image">
-                    <span class="tibetan-om">ཨོཾ</span>
-                </div>
+                <div class="about-image"><span class="tibetan-om" style="font-size: 6rem; color: white;">ཨོཾ</span></div>
             </div>
-            
-            <!-- Weather Widget -->
-            <div class="weather-widget">
-                <div class="weather-info">
-                    <div class="weather-icon">
-                        <i class="fas fa-sun" aria-hidden="true"></i>
-                    </div>
-                    <div class="weather-details">
-                        <h3>Lamayuru Weather</h3>
-                        <div class="weather-temp">12°C</div>
-                    </div>
-                </div>
-                <div class="weather-extras">
-                    <p><i class="fas fa-wind" aria-hidden="true"></i> Wind: 5 km/h</p>
-                    <p><i class="fas fa-tint" aria-hidden="true"></i> Humidity: 45%</p>
-                    <p><i class="fas fa-eye" aria-hidden="true"></i> Visibility: Clear</p>
-                </div>
-            </div>
-            
-            <!-- Manager Section -->
-            <div class="manager">
-                <div class="manager-image">
-                    <span class="tibetan-om">ཨོཾ</span>
-                </div>
-                <div class="manager-info">
-                    <h3>Stanzin Jigmet</h3>
-                    <span class="manager-position">Homestay Manager</span>
-                    <p>With over 1 years of experience in hospitality, Stanzin ensures that every guest experiences the warmth of Ladakhi culture. His deep knowledge of Lamayuru region and commitment to exceptional service will make your stay truly memorable.</p>
-                    <p>"At OM Homestay, we don't just host guests; we welcome them into our family. Our mission is to create unforgettable Himalayan experiences in the mystical Moonland that stay with you long after you leave."</p>
-                    <a href="https://wa.me/917051044406?text=Hello%20Stanzin!%20I%20would%20like%20to%20inquire%20about%20staying%20at%20OM%20Homestay." class="whatsapp-btn" target="_blank" style="display: inline-flex; margin-top: 10px;">
-                        <i class="fab fa-whatsapp" aria-hidden="true"></i> Chat with Stanzin
-                    </a>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Rooms Section -->
-        <section class="section rooms" id="rooms">
-            <div class="section-header">
-                <h2>Our Accommodation</h2>
-                <p>Comfortable rooms with authentic Ladakhi character and mountain views</p>
-            </div>
-            
+        </div>
+    </section>
+
+    <section class="section rooms-section" id="rooms">
+        <div class="container">
+            <div class="section-title">Our Accommodation</div>
             <div class="rooms-grid">
                 <div class="room-card">
-                    <div class="room-image">
-                        <span class="tibetan-om">ཨོཾ</span>
-                    </div>
-                    <div class="room-info">
-                        <h3>Standard Room with Mountain View</h3>
-                        <p>Cozy and comfortable with essential amenities. Features traditional Ladakhi decor with heating for the chilly mountain nights. Wake up to stunning views of Lamayuru's moon-like landscape.</p>
-                        <div class="room-features">
-                            <div class="room-feature"><i class="fas fa-user" aria-hidden="true"></i> 2 Guests</div>
-                            <div class="room-feature"><i class="fas fa-snowflake" aria-hidden="true"></i> Heating</div>
-                            <div class="room-feature"><i class="fas fa-bed" aria-hidden="true"></i> Comfortable Bed</div>
-                            <div class="room-feature"><i class="fas fa-thermometer-half" aria-hidden="true"></i> Warm Blankets</div>
-                            <div class="room-feature"><i class="fas fa-mountain" aria-hidden="true"></i> Mountain View</div>
-                        </div>
-                        <div class="room-price">
-                            <span class="price">₹2999/night</span>
-                            <a href="https://wa.me/917051044406?text=Hello!%20I%20would%20like%20to%20book%20the%20Standard%20Room%20at%20OM%20Homestay%20Lamayuru." class="cta-btn" target="_blank">Book via WhatsApp</a>
-                        </div>
+                    <div class="room-img"><span class="tibetan-om" style="font-size: 4rem; color: white;">ཨོཾ</span></div>
+                    <h3>Standard Mountain View Room</h3>
+                    <p>Cozy, heated room with panoramic views of the moonlike landscape and monastery. Traditional Ladakhi decor, warm blankets.</p>
+                    <div class="room-price">
+                        <span style="font-weight: 700; font-size: 1.4rem;">₹2999/night</span>
+                        <a href="https://wa.me/917051044406?text=I'd%20like%20to%20book" class="btn" style="padding: 8px 20px;">Book via WhatsApp</a>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- Testimonials Section -->
-        <section class="section testimonials" id="testimonials">
-            <div class="section-header">
-                <h2>Guest Testimonials</h2>
-                <p>See what our guests have to say about their Moonland experience</p>
+        </div>
+    </section>
+
+    <section class="section testimonials-section" id="testimonials">
+        <div class="container">
+            <div class="section-title">Guest Stories</div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">⭐ “Magical moonland sunrise. Stanzin is incredibly warm!” – Priya S.</div>
+                <div class="testimonial-card">⭐ “Perfect base for Lamayuru trek. Clean rooms and authentic meals.” – Mark J.</div>
+                <div class="testimonial-card">⭐ “Loved the traditional Ladakhi butter tea.” – Anjali P.</div>
             </div>
-            
-            <div class="testimonials-container">
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        "Our stay at OM Homestay was absolutely magical. Waking up to the moon-like landscape of Lamayuru was unforgettable. The room was clean and comfortable, and the hospitality was exceptional."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <span class="tibetan-om">ཨོཾ</span>
-                        </div>
-                        <div class="author-info">
-                            <h4>Priya Sharma</h4>
-                            <p>New Delhi, India</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        "As a solo traveler, I felt completely safe and welcomed at OM Homestay. The location is perfect for exploring Lamayuru Monastery. The traditional Ladakhi meals were the highlight of my trip!"
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <span class="tibetan-om">ཨོཾ</span>
-                        </div>
-                        <div class="author-info">
-                            <h4>Mark Johnson</h4>
-                            <p>London, UK</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        "We stayed at OM Homestay during our cycling trip through Ladakh. The comfortable bed, hot water, and delicious home-cooked food were exactly what we needed after exploring the Moonland."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <span class="tibetan-om">ཨོཾ</span>
-                        </div>
-                        <div class="author-info">
-                            <h4>Anjali Patel</h4>
-                            <p>Mumbai, India</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Booking Section -->
-        <section class="section booking" id="booking">
-            <div class="section-header">
-                <h2>Book Your Stay</h2>
-                <p>Secure your authentic Moonland experience with us</p>
-            </div>
-            
+        </div>
+    </section>
+
+    <section class="section booking-section" id="booking">
+        <div class="container">
+            <div class="section-title">Book Your Moonland Escape</div>
             <form class="booking-form" id="bookingForm">
-                <div class="form-header">
-                    <h3>Reservation Request</h3>
-                    <p>We'll confirm your booking within 24 hours</p>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <div class="form-group" style="flex:1"><input type="text" placeholder="Full name" id="name" required></div>
+                    <div class="form-group" style="flex:1"><input type="email" placeholder="Email" id="email" required></div>
                 </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" required aria-required="true">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" required aria-required="true">
-                    </div>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <div class="form-group" style="flex:1"><input type="tel" placeholder="Phone" id="phone" required></div>
+                    <div class="form-group" style="flex:1"><select id="guests"><option>1 Guest</option><option>2 Guests</option></select></div>
                 </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" required aria-required="true">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="guests">Number of Guests</label>
-                        <select id="guests" required aria-required="true">
-                            <option value="">Select Guests</option>
-                            <option value="1">1 Guest</option>
-                            <option value="2">2 Guests</option>
-                        </select>
-                    </div>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <div class="form-group" style="flex:1"><input type="date" id="checkin"></div>
+                    <div class="form-group" style="flex:1"><input type="date" id="checkout"></div>
                 </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="checkin">Check-in Date</label>
-                        <input type="date" id="checkin" required aria-required="true">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="checkout">Check-out Date</label>
-                        <input type="date" id="checkout" required aria-required="true">
-                    </div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="how">How did you hear about us?</label>
-                        <select id="how">
-                            <option value="">Select Option</option>
-                            <option value="google">Google Search</option>
-                            <option value="social">Social Media</option>
-                            <option value="friend">Friend Recommendation</option>
-                            <option value="returning">Returning Guest</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Special Requests</label>
-                    <textarea id="message" placeholder="Please share any special requirements or questions..." aria-label="Special requests"></textarea>
-                </div>
-                
+                <div class="form-group"><textarea rows="3" placeholder="Special requests..." id="message"></textarea></div>
                 <button type="submit" class="submit-btn">Send Booking Request</button>
-                
-                <div style="text-align: center; margin-top: 20px;">
-                    <p>Or book instantly via:</p>
-                    <a href="https://wa.me/917051044406?text=Hello%20OM%20Homestay%20Lamayuru!%20I%20would%20like%20to%20book%20a%20room%20for%20[number]%20guests%20from%20[date]%20to%20[date]." class="whatsapp-btn" target="_blank" style="display: inline-flex; margin-top: 10px;">
-                        <i class="fab fa-whatsapp" aria-hidden="true"></i> Book via WhatsApp
-                    </a>
-                </div>
             </form>
-        </section>
-        
-        <!-- Local Attractions Section -->
-        <section class="section attractions" id="attractions">
-            <div class="section-header">
-                <h2>Local Attractions</h2>
-                <p>Explore the wonders of Lamayuru Moonland</p>
+        </div>
+    </section>
+
+    <section class="section attractions-section" id="attractions">
+        <div class="container">
+            <div class="section-title">Explore Moonland</div>
+            <div class="attraction-grid">
+                <div class="attraction-card"><i class="fas fa-monument" style="font-size: 2rem; color: #e0a800;"></i><h3>Lamayuru Monastery</h3><p>5 min walk</p></div>
+                <div class="attraction-card"><i class="fas fa-moon" style="font-size: 2rem; color: #e0a800;"></i><h3>Moonland Trek</h3><p>Surreal landscapes</p></div>
+                <div class="attraction-card"><i class="fas fa-mountain" style="font-size: 2rem; color: #e0a800;"></i><h3>Ladakh Valley Views</h3><p>Sunrise & sunset</p></div>
             </div>
-            
-            <div class="attractions-grid">
-                <div class="attraction-card">
-                    <div class="attraction-image">
-                        <span class="tibetan-om">ཨོཾ</span>
-                    </div>
-                    <div class="attraction-info">
-                        <h3>Lamayuru Monastery</h3>
-                        <p>One of the oldest and largest monasteries in Ladakh, founded in the 11th century. Known as "Yungdrung" (the swastika), it's a spiritual center with stunning traditional architecture overlooking the Moonland landscape.</p>
-                        <div class="attraction-distance">
-                            <i class="fas fa-walking" aria-hidden="true"></i> 5 minutes walk
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="attraction-card">
-                    <div class="attraction-image">
-                        <span class="tibetan-om">ཨོཾ</span>
-                    </div>
-                    <div class="attraction-info">
-                        <h3>Moonland Landscape</h3>
-                        <p>Breathtaking views of the unique lunar landscape that gives Lamayuru its nickname "Moonland." Perfect for photography, meditation, and experiencing the surreal beauty of eroded mountains resembling the moon's surface.</p>
-                        <div class="attraction-distance">
-                            <i class="fas fa-walking" aria-hidden="true"></i> Right from our homestay
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="attraction-card">
-                    <div class="attraction-image">
-                        <span class="tibetan-om">ཨོཾ</span>
-                    </div>
-                    <div class="attraction-info">
-                        <h3>Ladakh Valley Views</h3>
-                        <p>Experience authentic Ladakhi culture and lifestyle with panoramic views of the Indus Valley. Perfect spot for sunrise/sunset viewing and understanding traditional Himalayan village life.</p>
-                        <div class="attraction-distance">
-                            <i class="fas fa-walking" aria-hidden="true"></i> 10 minutes walk
-                        </div>
-                    </div>
-                </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION WITH COLORFUL ICON CARDS -->
+    <section class="section contact-section" id="contact">
+        <div class="container" style="text-align: center;">
+            <h2 style="font-size: 2rem;">Connect With Us</h2>
+            <p style="margin-bottom: 32px;">We are just a message away – choose your favorite channel</p>
+            <div class="contact-icons">
+                <a href="tel:+917051044406" class="contact-icon-card call"><i class="fas fa-phone-alt"></i> Call<br><span style="font-size: 0.8rem;">+91 7051044406</span></a>
+                <a href="https://wa.me/917051044406?text=Hello" target="_blank" class="contact-icon-card whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp<br><span>Instant chat</span></a>
+                <a href="#" id="telegramContactCard" class="contact-icon-card telegram"><i class="fab fa-telegram-plane"></i> Telegram<br><span>+91 7051044406</span></a>
+                <a href="mailto:stanjigmet505@gmail.com" class="contact-icon-card email"><i class="fas fa-envelope"></i> Email<br><span>stanjigmet505</span></a>
+                <a href="#" id="lineContactCardBtn" class="contact-icon-card line"><i class="fab fa-line"></i> LINE<br><span>ID: stanzinjigmet05</span></a>
             </div>
-        </section>
-        
-        <!-- Location Section -->
-        <section class="section location" id="location">
-            <div class="section-header">
-                <h2>Our Location</h2>
-                <p>Find your way to our authentic Ladakhi homestay in Moonland</p>
-            </div>
-            
-            <div class="location-container">
-                <div class="location-details">
-                    <h3>Discover Our Homestay in Moonland</h3>
-                    <p>Nestled in the breathtaking Moonland landscape of Lamayuru, our traditional homestay offers a serene escape with panoramic mountain views. We're perfectly positioned to explore the region's natural beauty and cultural heritage.</p>
-                    
-                    <div class="address-card">
-                        <p><strong>OM Homestay Lamayuru</strong></p>
-                        <p>Near Lamayuru Monastery</p>
-                        <p>Lamayuru, Ladakh 194106</p>
-                        <p>Jammu & Kashmir, India</p>
-                        <p><i class="fas fa-phone" aria-hidden="true"></i> +91 7051044406</p>
-                        <p><i class="fab fa-whatsapp" aria-hidden="true"></i> <a href="https://wa.me/917051044406" style="color: #25D366; text-decoration: none;">Chat on WhatsApp</a></p>
-                    </div>
-                    
-                    <div class="location-features">
-                        <div class="location-feature">
-                            <i class="fas fa-moon" aria-hidden="true"></i>
-                            <div>
-                                <h4>Moonland Views</h4>
-                                <p>Panoramic views of Lamayuru's unique lunar landscape</p>
-                            </div>
-                        </div>
-                        <div class="location-feature">
-                            <i class="fas fa-monument" aria-hidden="true"></i>
-                            <div>
-                                <h4>Historic Location</h4>
-                                <p>Walking distance to ancient Lamayuru Monastery</p>
-                            </div>
-                        </div>
-                        <div class="location-feature">
-                            <i class="fas fa-hiking" aria-hidden="true"></i>
-                            <div>
-                                <h4>Trekking Base</h4>
-                                <p>Perfect starting point for Himalayan treks</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="directions">
-                        <h4>Getting Here</h4>
-                        
-                        <div class="transport-option">
-                            <h5><i class="fas fa-car" aria-hidden="true"></i> By Road</h5>
-                            <p>We are located 107km west of Leh on the Srinagar-Leh Highway (NH1). The journey takes approximately 2-3 hours by car. Look for our traditional sign just before Lamayuru village.</p>
-                        </div>
-                        
-                        <div class="transport-option">
-                            <h5><i class="fas fa-bus" aria-hidden="true"></i> By Bus</h5>
-                            <p>Regular buses run from Leh to Lamayuru. The bus stop is 200m from our homestay. We can arrange pickup from the bus stop with advance notice.</p>
-                        </div>
-                        
-                        <div class="transport-option">
-                            <h5><i class="fas fa-plane" aria-hidden="true"></i> By Air</h5>
-                            <p>The nearest airport is Kushok Bakula Rimpochee Airport in Leh (IXL), approximately 107km away. We can arrange traditional transport with advance booking.</p>
-                        </div>
-                        
-                        <div style="margin-top: 20px; text-align: center;">
-                            <a href="https://wa.me/917051044406?text=Hello!%20I%20need%20directions%20to%20OM%20Homestay%20Lamayuru." class="whatsapp-btn" target="_blank" style="display: inline-flex;">
-                                <i class="fab fa-whatsapp" aria-hidden="true"></i> Get Directions via WhatsApp
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="location-map">
-                    <div class="map-overlay">
-                        <h3>Our Location</h3>
-                        <p>Near Lamayuru Monastery, Moonland</p>
-                        <a href="https://goo.gl/maps/4c7X9zU4TfJ7ZvBf7" target="_blank" class="cta-btn">Open in Google Maps</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Contact Section -->
-        <section class="section contact" id="contact">
-            <div class="section-header">
-                <h2>Contact Us</h2>
-                <p>We'd love to hear from you. Reach out for bookings or inquiries.</p>
-            </div>
-            
-            <div class="contact-info-container">
-                <div class="contact-item">
-                    <i class="fas fa-phone" aria-hidden="true"></i>
-                    <h3>Phone</h3>
-                    <p>+91 7051044406</p>
-                    <a href="tel:+917051044406" class="cta-btn">Call Now</a>
-                </div>
-                
-                <div class="contact-item">
-                    <i class="fab fa-whatsapp" aria-hidden="true"></i>
-                    <h3>WhatsApp</h3>
-                    <p>Instant messaging available</p>
-                    <a href="https://wa.me/917051044406?text=Hello%20OM%20Homestay%20Lamayuru!" class="cta-btn" target="_blank" style="background: #25D366;">Chat Now</a>
-                </div>
-                
-                <div class="contact-item">
-                    <i class="fas fa-envelope" aria-hidden="true"></i>
-                    <h3>Email</h3>
-                    <p>stanjigmet505@gmail.com</p>
-                    <a href="mailto:stanjigmet505@gmail.com" class="cta-btn">Send Email</a>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Footer -->
-        <footer>
-            <div class="footer-content">
-                <div class="footer-col">
-                    <div class="footer-logo">
-                        <div class="footer-logo-img" aria-label="Tibetan OM Symbol Logo">
-                            <span class="tibetan-om">ཨོཾ</span>
-                        </div>
-                        <h3>OM Homestay Lamayuru</h3>
-                    </div>
-                    <p>Experience authentic Ladakhi hospitality amidst the mystical Moonland landscape of Lamayuru. Your perfect mountain retreat in the Himalayas awaits.</p>
-                    <div class="social-links">
-                        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                        <a href="https://wa.me/917051044406" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
-                        <a href="mailto:stanjigmet505@gmail.com" target="_blank" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#rooms">Room</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
-                        <li><a href="#booking">Booking</a></li>
-                        <!-- REMOVED: Gallery link -->
-                        <li><a href="#attractions">Attractions</a></li>
-                        <li><a href="#location">Location</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Our Services</h3>
-                    <ul class="footer-links">
-                        <li>Comfortable Accommodation</li>
-                        <li>Traditional Ladakhi Meals</li>
-                        <li>Moonland Trekking Guidance</li>
-                        <li>Cultural Experiences</li>
-                        <li>Local Transport Arrangements</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Contact Info</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-phone" aria-hidden="true"></i> +91 7051044406</li>
-                        <li><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp Available</li>
-                        <li><i class="fas fa-envelope" aria-hidden="true"></i> stanjigmet505@gmail.com</li>
-                        <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Near Lamayuru Monastery, Moonland</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2025 OM Homestay Lamayuru. All Rights Reserved. | Managed by Stanzin Jigmet | Ladakh's Moonland Retreat</p>
-            </div>
-        </footer>
+            <p><i class="fas fa-heart" style="color: #ffaaa5;"></i> We speak English, Hindi & Ladakhi</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2025 OM Homestay Lamayuru | Managed by Stanzin Jigmet | Moonland, Ladakh</p>
+        <p><i class="fab fa-whatsapp"></i> WhatsApp · <i class="fab fa-telegram"></i> Telegram · <i class="fab fa-line"></i> LINE ID: stanzinjigmet05 · <i class="fas fa-phone"></i> +91 7051044406</p>
     </div>
-    
-    <!-- Floating Booking Widget -->
-    <div class="floating-booking" onclick="document.querySelector('#booking').scrollIntoView({ behavior: 'smooth' })">
-        <i class="fas fa-calendar-check" aria-hidden="true"></i>
-        <span>Book Now</span>
+</footer>
+
+<!-- LINE Modal -->
+<div id="lineModal" class="modal">
+    <div class="modal-card">
+        <h3><i class="fab fa-line"></i> LINE Messenger</h3>
+        <div class="qr-code"><img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=line%3A%2F%2Fti%2Fp%2F%2B917051044406" alt="LINE QR"></div>
+        <div class="line-id-badge"><i class="fab fa-line"></i> LINE ID: <strong>stanzinjigmet05</strong><br>Or search by phone: +91 7051044406</div>
+        <button id="lineModalChatBtn" class="modal-btn">📱 Open LINE & Chat</button>
+        <button id="closeModalBtn" class="modal-btn" style="background:#aaa;">Close</button>
     </div>
-    
-    <!-- Optimized JavaScript -->
-    <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const mainNav = document.getElementById('main-nav');
-        
-        menuToggle.addEventListener('click', function() {
-            mainNav.classList.toggle('active');
-            menuToggle.innerHTML = mainNav.classList.contains('active') ? 
-                '<i class="fas fa-times" aria-hidden="true"></i>' : 
-                '<i class="fas fa-bars" aria-hidden="true"></i>';
+</div>
+
+<script>
+    const toggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('mainNav');
+    toggle.addEventListener('click', () => navMenu.classList.toggle('active'));
+
+    function openTelegram() {
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        if (isMobile) { window.location.href = 'tg://resolve?phone=%2B917051044406'; setTimeout(() => alert("If Telegram doesn't open, install Telegram and search +917051044406"), 500); }
+        else { navigator.clipboard.writeText('+917051044406').then(() => alert("Copied +917051044406. Paste in Telegram.")); }
+    }
+    document.getElementById('telegramBtn')?.addEventListener('click', (e) => { e.preventDefault(); openTelegram(); });
+    document.getElementById('telegramContactCard')?.addEventListener('click', (e) => { e.preventDefault(); openTelegram(); });
+
+    const lineUserId = 'stanzinjigmet05';
+    function openLineChat() {
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        if (isMobile) { window.location.href = `line://ti/p/~${lineUserId}`; setTimeout(() => alert("If LINE doesn't open, install LINE and add ID: " + lineUserId), 500); }
+        else { window.open(`https://line.me/R/ti/p/~${lineUserId}`, '_blank'); alert("On desktop, use QR code or add LINE ID manually: " + lineUserId); }
+    }
+    const modal = document.getElementById('lineModal');
+    function showModal() { modal.style.display = 'flex'; }
+    function hideModal() { modal.style.display = 'none'; }
+    document.getElementById('lineDirectBtn')?.addEventListener('click', (e) => { e.preventDefault(); showModal(); });
+    document.getElementById('lineContactCardBtn')?.addEventListener('click', (e) => { e.preventDefault(); showModal(); });
+    document.getElementById('lineModalChatBtn')?.addEventListener('click', () => { openLineChat(); hideModal(); });
+    document.getElementById('closeModalBtn')?.addEventListener('click', hideModal);
+    window.addEventListener('click', (e) => { if (e.target === modal) hideModal(); });
+
+    document.getElementById('bookingForm')?.addEventListener('submit', (e) => { e.preventDefault(); alert("Thank you! We'll reply within 24h."); e.target.reset(); });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === "#" || targetId === "") return;
+            const target = document.querySelector(targetId);
+            if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); if (navMenu.classList.contains('active')) navMenu.classList.remove('active'); }
         });
-        
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            header.style.background = window.scrollY > 100 ? 
-                'rgba(255, 255, 255, 0.98)' : 'rgba(255, 255, 255, 0.95)';
-            header.style.boxShadow = window.scrollY > 100 ? 
-                '0 5px 20px rgba(0,0,0,0.1)' : '0 5px 15px rgba(0,0,0,0.1)';
-        });
-        
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Close mobile menu if open
-                if (mainNav.classList.contains('active')) {
-                    mainNav.classList.remove('active');
-                    menuToggle.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
-                }
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // REMOVED: Gallery lightbox functionality
-        
-        // Booking form handling
-        const bookingForm = document.getElementById('bookingForm');
-        if (bookingForm) {
-            bookingForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Get form values
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const phone = document.getElementById('phone').value;
-                const guests = document.getElementById('guests').value;
-                const checkin = document.getElementById('checkin').value;
-                const checkout = document.getElementById('checkout').value;
-                const how = document.getElementById('how').value;
-                const message = document.getElementById('message').value;
-                
-                // Create email message
-                const subject = `Booking Request from ${name} - OM Homestay Lamayuru`;
-                const body = 
-                    `New Booking Request from OM Homestay Website%0A%0A` +
-                    `Name: ${name}%0A` +
-                    `Email: ${email}%0A` +
-                    `Phone: ${phone}%0A` +
-                    `Guests: ${guests}%0A` +
-                    `Check-in: ${checkin}%0A` +
-                    `Check-out: ${checkout}%0A` +
-                    `How they heard about us: ${how || 'Not specified'}%0A` +
-                    `Special Requests: ${message || 'None'}`;
-                
-                // Open email with pre-filled message
-                window.open(`mailto:stanjigmet505@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
-                
-                // Show success message
-                alert('Thank you! Your booking request has been sent. We will contact you shortly to confirm your reservation.');
-                
-                // Reset form
-                bookingForm.reset();
-            });
-        }
-        
-        // Set minimum date for check-in to today
-        const today = new Date().toISOString().split('T')[0];
-        document.getElementById('checkin').min = today;
-        
-        // Update checkout min date when checkin changes
-        document.getElementById('checkin').addEventListener('change', function() {
-            document.getElementById('checkout').min = this.value;
-        });
-        
-        // Location map interaction
-        const mapOverlay = document.querySelector('.map-overlay');
-        if (mapOverlay) {
-            mapOverlay.addEventListener('click', function() {
-                window.open('https://goo.gl/maps/4c7X9zU4TfJ7ZvBf7', '_blank');
-            });
-        }
-        
-        // Animation for sections when they come into view
-        const sections = document.querySelectorAll('.section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        sections.forEach(section => {
-            section.style.opacity = 0;
-            section.style.transform = 'translateY(30px)';
-            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            observer.observe(section);
-        });
-        
-        // WhatsApp message generator for booking
-        function generateWhatsAppMessage() {
-            const name = document.getElementById('name')?.value || '';
-            const guests = document.getElementById('guests')?.value || '';
-            const checkin = document.getElementById('checkin')?.value || '';
-            const checkout = document.getElementById('checkout')?.value || '';
-            
-            let message = `Hello OM Homestay Lamayuru! I would like to book a room.`;
-            
-            if (name) message += ` Name: ${name}`;
-            if (guests) message += ` Guests: ${guests}`;
-            if (checkin) message += ` Check-in: ${checkin}`;
-            if (checkout) message += ` Check-out: ${checkout}`;
-            
-            return encodeURIComponent(message);
-        }
-        
-        // Update WhatsApp links with dynamic message
-        document.addEventListener('DOMContentLoaded', function() {
-            const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
-            whatsappLinks.forEach(link => {
-                if (link.href.includes('[number]') || link.href.includes('[date]')) {
-                    // These are template links, they'll be used as-is
-                    return;
-                }
-                
-                // Update booking form WhatsApp button
-                if (link.textContent.includes('Book via WhatsApp') || link.textContent.includes('Chat on WhatsApp')) {
-                    link.addEventListener('click', function(e) {
-                        if (!this.href.includes('text=')) {
-                            e.preventDefault();
-                            const message = generateWhatsAppMessage();
-                            window.open(`https://wa.me/917051044406?text=${message}`, '_blank');
-                        }
-                    });
-                }
-            });
-        });
-    </script>
+    });
+</script>
 </body>
-</html>
+</html>           
