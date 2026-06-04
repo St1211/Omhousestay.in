@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>OM Homestay Lamayuru | Direct Connect – LINE & Telegram Fixed</title>
+    <title>OM Homestay Lamayuru | Direct Email Booking</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tibetan:wght@400;700&display=swap" rel="stylesheet">
@@ -70,8 +70,9 @@
 
         .booking-form { max-width: 700px; margin: 0 auto; background: white; padding: 40px; border-radius: 48px; box-shadow: 0 20px 35px rgba(0,0,0,0.1); }
         .form-group { margin-bottom: 20px; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px 20px; border-radius: 60px; border: 1px solid #e2d5c6; background: #fefcf9; }
-        .submit-btn { background: #e0a800; color: white; width: 100%; padding: 14px; border-radius: 60px; font-weight: bold; border: none; cursor: pointer; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px 20px; border-radius: 60px; border: 1px solid #e2d5c6; background: #fefcf9; font-family: inherit; }
+        .submit-btn { background: #e0a800; color: white; width: 100%; padding: 14px; border-radius: 60px; font-weight: bold; border: none; cursor: pointer; transition: 0.2s; }
+        .submit-btn:hover { background: #c48a1f; transform: scale(0.98); }
 
         .contact-icons {
             display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin: 40px 0 20px;
@@ -88,7 +89,6 @@
         .contact-icon-card i { font-size: 2.2rem; margin-bottom: 12px; display: block; }
         .contact-icon-card:hover { transform: translateY(-6px); filter: brightness(1.05); }
 
-        /* Modal styles for LINE & Telegram helper */
         .modal {
             display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px);
             justify-content: center; align-items: center; z-index: 2000;
@@ -114,6 +114,10 @@
             position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #333; color: white;
             padding: 12px 20px; border-radius: 50px; z-index: 2100; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity 0.2s;
+        }
+        .email-badge {
+            background: #fef2e0; border-radius: 30px; padding: 8px 16px; display: inline-block;
+            font-size: 0.85rem; color: #b37b2e; margin-bottom: 20px;
         }
     </style>
 </head>
@@ -177,7 +181,7 @@
                     <p>Cozy, heated room with panoramic views of the moonlike landscape and monastery. Traditional Ladakhi decor, warm blankets.</p>
                     <div class="room-price">
                         <span style="font-weight: 700; font-size: 1.4rem;">₹2999/night</span>
-                        <a href="https://wa.me/917051044406?text=I'd%20like%20to%20book" class="btn" style="padding: 8px 20px;">Book via WhatsApp</a>
+                        <a href="https://wa.me/917051044406?text=I'd%20like%20to%20book%20Standard%20Room" class="btn" style="padding: 8px 20px;">Book via WhatsApp</a>
                     </div>
                 </div>
             </div>
@@ -188,32 +192,37 @@
         <div class="container">
             <div class="section-title">Guest Stories</div>
             <div class="testimonial-grid">
-                <div class="testimonial-card">⭐ “Magical moonland sunrise. Stanzin is incredibly warm!” – Priya S.</div>
-                <div class="testimonial-card">⭐ “Perfect base for Lamayuru trek. Clean rooms and authentic meals.” – Mark J.</div>
+                <div class="testimonial-card">⭐ “Magical moonland sunrise. Stanzin is incredibly warm!” – Priya .</div>
+                <div class="testimonial-card">⭐ “Perfect base for Lamayuru trek. Clean rooms and authentic meals.” – Mark .</div>
                 <div class="testimonial-card">⭐ “Loved the traditional Ladakhi butter tea.” – Anjali P.</div>
             </div>
         </div>
     </section>
 
+    <!-- BOOKING SECTION: DIRECT EMAIL (NO THIRD PARTY, NO CONFIRM POPUP) -->
     <section class="section booking-section" id="booking">
         <div class="container">
             <div class="section-title">Book Your Moonland Escape</div>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div class="email-badge"><i class="fas fa-envelope"></i> Booking requests sent directly to <strong>stanjigmet505@gmail.com</strong> via your email</div>
+            </div>
             <form class="booking-form" id="bookingForm">
                 <div style="display: flex; gap: 20px; flex-wrap: wrap;">
                     <div class="form-group" style="flex:1"><input type="text" placeholder="Full name" id="name" required></div>
-                    <div class="form-group" style="flex:1"><input type="email" placeholder="Email" id="email" required></div>
+                    <div class="form-group" style="flex:1"><input type="email" placeholder="Your Email (for reply)" id="guestEmail" required></div>
                 </div>
                 <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                    <div class="form-group" style="flex:1"><input type="tel" placeholder="Phone" id="phone" required></div>
-                    <div class="form-group" style="flex:1"><select id="guests"><option>1 Guest</option><option>2 Guests</option></select></div>
+                    <div class="form-group" style="flex:1"><input type="tel" placeholder="Phone with country code" id="phone" required></div>
+                    <div class="form-group" style="flex:1"><select id="guests"><option>1 Guest</option><option>2 Guests</option><option>3 Guests</option><option>4 Guests</option></select></div>
                 </div>
                 <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                    <div class="form-group" style="flex:1"><input type="date" id="checkin"></div>
-                    <div class="form-group" style="flex:1"><input type="date" id="checkout"></div>
+                    <div class="form-group" style="flex:1"><input type="date" id="checkin" required></div>
+                    <div class="form-group" style="flex:1"><input type="date" id="checkout" required></div>
                 </div>
-                <div class="form-group"><textarea rows="3" placeholder="Special requests..." id="message"></textarea></div>
-                <button type="submit" class="submit-btn">Send Booking Request</button>
+                <div class="form-group"><textarea rows="3" placeholder="Special requests / Message" id="message"></textarea></div>
+                <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Send Booking Request (Direct Email)</button>
             </form>
+            <p style="text-align: center; margin-top: 20px; font-size: 0.85rem; color: #5e4b38;"><i class="fas fa-lock"></i> No third-party servers — Your request opens your email client with all details.</p>
         </div>
     </section>
 
@@ -255,7 +264,6 @@
 <div id="lineModal" class="modal">
     <div class="modal-card">
         <h3><i class="fab fa-line"></i> LINE Messenger</h3>
-        <!-- QR code now uses correct LINE profile link: https://line.me/ti/p/~stanzinjigmet05 -->
         <div class="qr-code">
             <img id="lineQrImg" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fline.me%2Fti%2Fp%2F~stanzinjigmet05" alt="LINE QR Code">
         </div>
@@ -273,28 +281,82 @@
 </div>
 
 <script>
-    // ---------- HELPER: show toast ----------
-    function showToast(message, duration = 2000) {
+    // ---------- TOAST ----------
+    function showToast(message, duration = 3000) {
         const toast = document.getElementById('toastMsg');
         toast.textContent = message;
         toast.style.opacity = '1';
         setTimeout(() => { toast.style.opacity = '0'; }, duration);
     }
 
-    // ========== 1. LINE FIXES: QR + Deep link + Copy ID ==========
-    const lineUserId = 'stanzinjigmet05';
-    const linePhoneNumber = '+917051044406';
+    // ========== 1. DIRECT EMAIL BOOKING (NO THIRD PARTY, NO CONFIRM POPUP) ==========
+    const bookingForm = document.getElementById('bookingForm');
+    const homestayEmail = 'stanjigmet505@gmail.com';
 
-    // Open LINE chat (works best on mobile, fallback for desktop)
+    bookingForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('name').value.trim();
+        const guestEmail = document.getElementById('guestEmail').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const guests = document.getElementById('guests').value;
+        const checkin = document.getElementById('checkin').value;
+        const checkout = document.getElementById('checkout').value;
+        const message = document.getElementById('message').value.trim();
+
+        // Basic validation
+        if (!name || !guestEmail || !phone || !checkin || !checkout) {
+            showToast("⚠️ Please fill all required fields (Name, Email, Phone, Dates)", 3000);
+            return;
+        }
+
+        // Build email subject & body
+        const subject = `Booking Request from ${name} - OM Homestay Lamayuru`;
+        const body = `
+Dear OM Homestay Team,
+
+I would like to book a room at your homestay.
+
+--- Guest Details ---
+Full Name: ${name}
+Email: ${guestEmail}
+Phone: ${phone}
+Number of Guests: ${guests}
+Check-in Date: ${checkin}
+Check-out Date: ${checkout}
+
+--- Special Requests / Message ---
+${message || "No special requests."}
+
+Please confirm availability and total price. Thank you!
+
+Best regards,
+${name}
+        `.trim();
+
+        // Create mailto link - opens user's default email client directly
+        const mailtoLink = `mailto:${homestayEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        
+        // Open email client
+        window.location.href = mailtoLink;
+        
+        // Show a simple, non-intrusive toast notification (no confirm popup)
+        showToast("📧 Opening your email app... Please review and send the email to complete your booking.", 5000);
+        
+        // Optional: reset form? Let's not reset automatically so user doesn't lose data if email fails.
+        // But we can keep it as is. User will send email manually.
+        // No confirm dialog at all – that was the problem.
+    });
+
+    // ========== 2. LINE FIXES ==========
+    const lineUserId = 'stanzinjigmet05';
     function openLineChatDirect() {
         const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-        // LINE official deep link using user ID (most reliable)
         const lineDeepLink = `line://ti/p/~${lineUserId}`;
         const webFallback = `https://line.me/ti/p/~${lineUserId}`;
-        
         if (isMobile) {
             window.location.href = lineDeepLink;
-            // If LINE fails to open, show helper after short delay
             setTimeout(() => {
                 showToast("⚠️ If LINE doesn't open, install LINE and add ID: " + lineUserId, 4000);
             }, 800);
@@ -303,21 +365,14 @@
             showToast("Desktop: Add friend with ID: " + lineUserId + " or scan QR", 3500);
         }
     }
-
-    // Copy LINE ID to clipboard
     function copyLineId() {
         navigator.clipboard.writeText(lineUserId).then(() => {
             showToast("✅ LINE ID copied: " + lineUserId, 2000);
-        }).catch(() => {
-            alert("Copy manually: " + lineUserId);
-        });
+        }).catch(() => alert("Copy manually: " + lineUserId));
     }
-
-    // LINE Modal logic
     const lineModal = document.getElementById('lineModal');
     function showLineModal() { lineModal.style.display = 'flex'; }
     function hideLineModal() { lineModal.style.display = 'none'; }
-
     document.getElementById('lineDirectBtn')?.addEventListener('click', (e) => { e.preventDefault(); showLineModal(); });
     document.getElementById('lineContactCardBtn')?.addEventListener('click', (e) => { e.preventDefault(); showLineModal(); });
     document.getElementById('lineModalChatBtn')?.addEventListener('click', () => { openLineChatDirect(); hideLineModal(); });
@@ -325,65 +380,32 @@
     document.getElementById('closeModalBtn')?.addEventListener('click', hideLineModal);
     window.addEventListener('click', (e) => { if (e.target === lineModal) hideLineModal(); });
 
-    // ========== 2. TELEGRAM FIX: Direct chat with instant open + copy fallback ==========
+    // ========== 3. TELEGRAM FIX (Direct chat) ==========
     const telegramPhone = '+917051044406';
-    const telegramPhoneClean = '917051044406';
-
-    // universal function to open Telegram chat directly (mobile & desktop try best)
     function openTelegramChat() {
         const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-        // Most reliable: tg://resolve?phone=+XXXXXXXXXX (opens chat directly if Telegram installed)
         const tgDeepLink = `tg://resolve?phone=${encodeURIComponent(telegramPhone)}`;
-        
         if (isMobile) {
-            // mobile: try to open telegram app
             window.location.href = tgDeepLink;
-            // if after 1.2 seconds the app didn't open, show helper with copy option
             setTimeout(() => {
-                showToast("📲 Open Telegram? If not, copy number: " + telegramPhone, 5000);
-                // Additionally prompt a small confirm to copy
-                const userConfirm = confirm("Tap OK to copy our Telegram number (+917051044406) and open Telegram manually.\nCancel to ignore.");
-                if (userConfirm) {
-                    navigator.clipboard.writeText(telegramPhone);
-                    showToast("✅ Number copied! Paste in Telegram search.", 2500);
-                }
+                showToast("📲 If Telegram doesn't open, copy number: " + telegramPhone, 4000);
+                // No confirm popup, just a toast and optional silent copy
+                navigator.clipboard.writeText(telegramPhone).catch(() => {});
             }, 1000);
         } else {
-            // Desktop: open web.telegram with phone pre-fill? Better copy + instruct and try web version.
             window.open(`https://web.telegram.org/k/`, '_blank');
             navigator.clipboard.writeText(telegramPhone).then(() => {
                 showToast("📋 Phone number copied: " + telegramPhone + " — Paste in Telegram search", 4000);
-                alert("Phone number copied: " + telegramPhone + "\nOpen Telegram (desktop/web) and paste to start chat.");
-            }).catch(() => {
-                alert("Add us on Telegram: " + telegramPhone);
-            });
+            }).catch(() => {});
         }
     }
+    document.getElementById('telegramBtn')?.addEventListener('click', (e) => { e.preventDefault(); openTelegramChat(); });
+    document.getElementById('telegramContactCard')?.addEventListener('click', (e) => { e.preventDefault(); openTelegramChat(); });
 
-    // Attach Telegram click events (both header button & contact card)
-    const telegramBtn = document.getElementById('telegramBtn');
-    const telegramCardBtn = document.getElementById('telegramContactCard');
-    if (telegramBtn) telegramBtn.addEventListener('click', (e) => { e.preventDefault(); openTelegramChat(); });
-    if (telegramCardBtn) telegramCardBtn.addEventListener('click', (e) => { e.preventDefault(); openTelegramChat(); });
-
-    // Additional: ensure manual copy option for LINE and Telegram anywhere else (already covered)
-    // optional: add copy phone for telegram inside any other? fine
-
-    // ========== 3. Booking form & menu toggle ==========
+    // ========== 4. Menu toggle & smooth scroll ==========
     const toggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('mainNav');
     if (toggle) toggle.addEventListener('click', () => navMenu.classList.toggle('active'));
-
-    const bookingForm = document.getElementById('bookingForm');
-    if (bookingForm) {
-        bookingForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert("✨ Thank you! We'll reply within 24h via WhatsApp/Telegram/Email.");
-            bookingForm.reset();
-        });
-    }
-
-    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
@@ -397,22 +419,9 @@
         });
     });
 
-    // Bonus: add copy button for LINE ID on footer or main contact? already modal.
-    // To make LINE QR perfectly render and show correct ID: confirm QR content
-    // Also ensure that the QR code shown is valid: line.me/ti/p/~stanzinjigmet05
+    // QR code refresh
     const qrImg = document.getElementById('lineQrImg');
-    if(qrImg) {
-        // fallback secure: if image not loaded, regenerate but it's fine
-        qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fline.me%2Fti%2Fp%2F~${lineUserId}`;
-    }
-
-    // update any inline line ID references dynamically just in case
-    document.querySelectorAll('.line-id-badge strong, .conn-item.line, .contact-icon-card.line span').forEach(el => {
-        if(el.innerText.includes('stanzinjigmet05') || el.innerHTML.includes('stanzinjigmet05')) return;
-        // safeguard
-    });
-
-    console.log("✅ LINE & Telegram direct chat fixes active: LINE ID = stanzinjigmet05 | Telegram = +917051044406");
+    if(qrImg) qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fline.me%2Fti%2Fp%2F~${lineUserId}`;
 </script>
 </body>
 </html>
