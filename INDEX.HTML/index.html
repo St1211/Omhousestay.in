@@ -98,8 +98,8 @@
         .contact-icon-card i { font-size: 2rem; margin-bottom: 8px; display: block; }
         .contact-icon-card span { font-size: 0.75rem; display: block; }
 
-        /* QR Modal Overlay */
-        .qr-modal {
+        /* Modal Overlay - Reused for LINE and Telegram */
+        .modal {
             display: none;
             position: fixed;
             top: 0;
@@ -113,10 +113,10 @@
             align-items: center;
             cursor: pointer;
         }
-        .qr-modal.active {
+        .modal.active {
             display: flex;
         }
-        .qr-modal-content {
+        .modal-content {
             background: white;
             border-radius: 48px;
             padding: 30px 25px;
@@ -130,42 +130,46 @@
             from { transform: scale(0.9); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
         }
-        .qr-modal-content h3 {
-            color: #06C755;
+        .modal-content h3 {
             margin-bottom: 15px;
             font-size: 1.8rem;
         }
-        .qr-modal-content h3 i {
+        .modal-content h3 i {
             margin-right: 10px;
         }
-        .qr-modal-content img {
-            width: 240px;
-            max-width: 100%;
-            border-radius: 24px;
-            background: white;
-            padding: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            margin: 10px 0;
-        }
-        .qr-modal-content .line-id {
+        .modal-content .phone-number {
             background: #f0f0f0;
-            padding: 10px 16px;
+            padding: 12px 16px;
             border-radius: 40px;
             display: inline-block;
             margin: 15px 0 10px;
             font-family: monospace;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: bold;
-            color: #06C755;
+            letter-spacing: 1px;
         }
-        .qr-modal-content p {
+        .modal-content .copy-btn {
+            background: #e0a800;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 8px 0;
+            font-size: 0.85rem;
+        }
+        .modal-content .copy-btn:hover {
+            background: #c48a1f;
+        }
+        .modal-content p {
             color: #333;
             margin-top: 12px;
             font-size: 0.9rem;
         }
-        .qr-modal-content .close-modal {
+        .modal-content .close-modal {
             margin-top: 20px;
-            background: #06C755;
+            background: #666;
             color: white;
             border: none;
             padding: 10px 24px;
@@ -174,9 +178,11 @@
             cursor: pointer;
             font-size: 0.9rem;
         }
-        .qr-modal-content .close-modal:hover {
-            background: #05a546;
+        .modal-content .close-modal:hover {
+            background: #444;
         }
+        .telegram-bg h3 { color: #26A5E4; }
+        .line-bg h3 { color: #06C755; }
 
         .map-embed-container {
             margin-top: 48px;
@@ -226,25 +232,44 @@
             display: flex;
             justify-content: center;
         }
+        .map-caption a {
+            color: #ffaaa5;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
 <div id="toastMsg" class="toast-msg">✨ Welcome to OM Homestay</div>
 
-<!-- QR Modal - shows LINE QR code when LINE button is clicked -->
-<div id="qrModal" class="qr-modal">
-    <div class="qr-modal-content" onclick="event.stopPropagation()">
+<!-- Telegram Modal -->
+<div id="telegramModal" class="modal">
+    <div class="modal-content telegram-bg" onclick="event.stopPropagation()">
+        <h3><i class="fab fa-telegram-plane"></i> Telegram</h3>
+        <p>Start a chat with us on Telegram</p>
+        <div class="phone-number">
+            <i class="fab fa-telegram-plane"></i> +91 70510 44406
+        </div>
+        <button class="copy-btn" onclick="copyToClipboard('+917051044406', 'Telegram')"><i class="fas fa-copy"></i> Copy Number</button>
+        <p>📱 Open Telegram app → New Chat → Paste this number</p>
+        <p style="font-size:0.8rem; color:#666;">Or search for <strong>@OMHomestayLamayuru</strong> (if username exists)</p>
+        <button class="close-modal" onclick="closeTelegramModal()">Close</button>
+    </div>
+</div>
+
+<!-- LINE Modal -->
+<div id="lineModal" class="modal">
+    <div class="modal-content line-bg" onclick="event.stopPropagation()">
         <h3><i class="fab fa-line"></i> LINE</h3>
         <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=https://line.me/ti/p/z6vjTFm64c" 
              alt="LINE QR Code - OM Homestay" 
              width="260">
-        <div class="line-id">
+        <div class="phone-number">
             <i class="fab fa-line"></i> LINE ID: z6vjTFm64c
         </div>
         <p>📱 Scan with LINE app to chat with us</p>
         <p style="font-size:0.8rem; color:#666;">Or manually add this ID in LINE</p>
-        <button class="close-modal" onclick="closeQRModal()">Close</button>
+        <button class="close-modal" onclick="closeLineModal()">Close</button>
     </div>
 </div>
 
@@ -257,8 +282,8 @@
         <div class="connection-bar">
             <a href="tel:+917051044406" class="conn-item call"><i class="fas fa-phone-alt"></i> Call</a>
             <a href="https://wa.me/917051044406?text=Hello%20OM%20Homestay" target="_blank" rel="noopener noreferrer" class="conn-item whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            <a href="https://web.telegram.org/k/#@OMHomestayLamayuru" target="_blank" rel="noopener noreferrer" class="conn-item telegram"><i class="fab fa-telegram-plane"></i> Telegram</a>
-            <!-- LINE BUTTON: Opens QR modal instead of external link -->
+            <!-- Telegram button now opens modal instead of direct link -->
+            <div class="conn-item telegram" id="telegramHeaderBtn"><i class="fab fa-telegram-plane"></i> Telegram</div>
             <div class="conn-item line" id="lineHeaderBtn"><i class="fab fa-line"></i> LINE</div>
             <a href="mailto:stanjigmet505@gmail.com" class="conn-item email"><i class="fas fa-envelope"></i> Email</a>
         </div>
@@ -277,7 +302,7 @@
             <div class="btn-group">
                 <a href="#booking" class="btn">BOOK YOUR STAY</a>
                 <a href="https://wa.me/917051044406" class="btn btn-outline" target="_blank" rel="noopener noreferrer">CHAT ON WHATSAPP</a>
-                <!-- LINE button opens QR modal -->
+                <div class="btn btn-outline" id="heroTelegramBtn" style="border-color: #26A5E4; background: rgba(38,165,228,0.2); cursor: pointer;">CHAT ON TELEGRAM</div>
                 <div class="btn btn-outline btn-line" id="heroLineBtn" style="border-color: #06C755; background: rgba(6,199,85,0.2); cursor: pointer;">CHAT ON LINE</div>
             </div>
         </div>
@@ -395,24 +420,22 @@
             <div class="contact-icons">
                 <a href="tel:+917051044406" class="contact-icon-card call"><i class="fas fa-phone-alt"></i> Call</a>
                 <a href="https://wa.me/917051044406?text=Hello%20I%20want%20to%20know%20about%20homestay" target="_blank" rel="noopener noreferrer" class="contact-icon-card whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                <a href="https://web.telegram.org/k/#@OMHomestayLamayuru" target="_blank" rel="noopener noreferrer" class="contact-icon-card telegram"><i class="fab fa-telegram-plane"></i> Telegram</a>
-                <!-- LINE contact button opens QR modal -->
+                <div class="contact-icon-card telegram" id="contactTelegramBtn"><i class="fab fa-telegram-plane"></i> Telegram</div>
                 <div class="contact-icon-card line" id="contactLineBtn"><i class="fab fa-line"></i> LINE</div>
                 <a href="mailto:stanjigmet505@gmail.com" class="contact-icon-card email"><i class="fas fa-envelope"></i> Email</a>
             </div>
 
-            <!-- Google Maps - Exact Lamayuru Location -->
             <div class="map-embed-container">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12980.317104083557!2d76.754669!3d34.283211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38fdeecd2e8a69a7%3A0x4e7f8c4c5c7d0a3b!2sLamayuru%2C%20Ladakh%20194106!5e1!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
-                    title="OM Homestay Lamayuru - Exact Location in Lamayuru Village"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25961.3190426497!2d76.74798495!3d34.2827564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38fdeecd2e8a69a7%3A0x4e7f8c4c5c7d0a3b!2sOM%20HOMESTAY%20LAMAYURU!5e1!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                    title="OM Homestay Lamayuru - Exact Location with Marker"
                     loading="lazy"
                     allowfullscreen="">
                 </iframe>
-                <div style="background: #1a2a3a; padding: 12px; font-size: 0.8rem; text-align: center;">
-                    <i class="fas fa-map-marker-alt"></i> <strong>OM Homestay, Lamayuru Village</strong><br>
-                    Near Lamayuru Monastery | Moonland Area, Leh-Ladakh, India 194101<br>
-                    <span style="font-size:0.7rem;">📍 Your marked location in Lamayuru</span>
+                <div class="map-caption" style="background: #1a2a3a; padding: 12px; font-size: 0.8rem; text-align: center;">
+                    <i class="fas fa-map-marker-alt" style="color: #ff4444;"></i> <strong>📍 YOU ARE HERE: OM HOMESTAY LAMAYURU</strong><br>
+                    NH 1, Lamayuru, Leh-Ladakh, India 194101<br>
+                    <span style="font-size:0.7rem;">👉 <a href="https://maps.app.goo.gl/3dvNe8PxMYkL8Q357" target="_blank" rel="noopener noreferrer">Open in Google Maps with live marker →</a></span>
                 </div>
             </div>
 
@@ -430,55 +453,44 @@
 </footer>
 
 <script>
-    // QR Modal functions
-    const qrModal = document.getElementById('qrModal');
+    // Modals
+    const telegramModal = document.getElementById('telegramModal');
+    const lineModal = document.getElementById('lineModal');
     
-    function openQRModal() {
-        if (qrModal) {
-            qrModal.classList.add('active');
-        }
-    }
+    function openTelegramModal() { if (telegramModal) telegramModal.classList.add('active'); }
+    function closeTelegramModal() { if (telegramModal) telegramModal.classList.remove('active'); }
+    function openLineModal() { if (lineModal) lineModal.classList.add('active'); }
+    function closeLineModal() { if (lineModal) lineModal.classList.remove('active'); }
     
-    function closeQRModal() {
-        if (qrModal) {
-            qrModal.classList.remove('active');
-        }
-    }
+    // Close modals when clicking on overlay background
+    if (telegramModal) telegramModal.addEventListener('click', (e) => { if (e.target === telegramModal) closeTelegramModal(); });
+    if (lineModal) lineModal.addEventListener('click', (e) => { if (e.target === lineModal) closeLineModal(); });
     
-    // Close modal when clicking outside
-    if (qrModal) {
-        qrModal.addEventListener('click', function(e) {
-            if (e.target === qrModal) {
-                closeQRModal();
-            }
+    // Copy to clipboard helper
+    function copyToClipboard(text, platform) {
+        navigator.clipboard.writeText(text).then(() => {
+            showToast(`${platform} number copied: ${text}`, 2500);
+        }).catch(() => {
+            showToast(`Could not copy. Please copy manually: ${text}`, 3000);
         });
     }
     
-    // Attach LINE button handlers to open QR modal (NO external market:// links)
-    const lineHeaderBtn = document.getElementById('lineHeaderBtn');
-    const heroLineBtn = document.getElementById('heroLineBtn');
-    const contactLineBtn = document.getElementById('contactLineBtn');
+    // Attach Telegram button handlers
+    const telegramHeader = document.getElementById('telegramHeaderBtn');
+    const heroTelegram = document.getElementById('heroTelegramBtn');
+    const contactTelegram = document.getElementById('contactTelegramBtn');
+    if (telegramHeader) telegramHeader.addEventListener('click', (e) => { e.preventDefault(); openTelegramModal(); });
+    if (heroTelegram) heroTelegram.addEventListener('click', (e) => { e.preventDefault(); openTelegramModal(); });
+    if (contactTelegram) contactTelegram.addEventListener('click', (e) => { e.preventDefault(); openTelegramModal(); });
     
-    if (lineHeaderBtn) {
-        lineHeaderBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            openQRModal();
-        });
-    }
-    if (heroLineBtn) {
-        heroLineBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            openQRModal();
-        });
-    }
-    if (contactLineBtn) {
-        contactLineBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            openQRModal();
-        });
-    }
+    // Attach LINE button handlers
+    const lineHeader = document.getElementById('lineHeaderBtn');
+    const heroLine = document.getElementById('heroLineBtn');
+    const contactLine = document.getElementById('contactLineBtn');
+    if (lineHeader) lineHeader.addEventListener('click', (e) => { e.preventDefault(); openLineModal(); });
+    if (heroLine) heroLine.addEventListener('click', (e) => { e.preventDefault(); openLineModal(); });
+    if (contactLine) contactLine.addEventListener('click', (e) => { e.preventDefault(); openLineModal(); });
     
-    // Toast helper
     function showToast(message, duration = 3000) {
         const toast = document.getElementById('toastMsg');
         if (!toast) return;
@@ -487,7 +499,7 @@
         setTimeout(() => { toast.style.opacity = '0'; }, duration);
     }
     
-    // Booking form handler
+    // Booking form
     const bookingForm = document.getElementById('bookingForm');
     const homestayEmail = 'stanjigmet505@gmail.com';
     if (bookingForm) {
@@ -502,7 +514,7 @@
             const message = document.getElementById('message').value.trim();
             
             if (!name || !guestEmail || !phone || !checkin || !checkout) {
-                showToast("⚠️ Please fill all required fields (name, email, phone, dates)", 3000);
+                showToast("⚠️ Please fill all required fields", 3000);
                 return;
             }
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -511,24 +523,21 @@
                 return;
             }
             if (new Date(checkout) <= new Date(checkin)) {
-                showToast("❌ Check-out date must be after check-in date", 3000);
+                showToast("❌ Check-out must be after check-in", 3000);
                 return;
             }
-            const subject = `Booking Request from ${name} - OM Homestay Lamayuru (Standard Room)`;
-            const body = `Dear OM Homestay Team,%0A%0AI would like to book a STANDARD MOUNTAIN VIEW ROOM at your homestay.%0A%0A--- Guest Details ---%0AFull Name: ${name}%0AEmail: ${guestEmail}%0APhone: ${phone}%0ANumber of Guests: ${guests}%0ACheck-in Date: ${checkin}%0ACheck-out Date: ${checkout}%0A%0A--- Special Requests / Message ---%0A${message || "No special requests."}%0A%0APlease confirm availability and total price. Thank you!%0A%0ABest regards,%0A${name}`;
-            const mailtoLink = `mailto:${homestayEmail}?subject=${encodeURIComponent(subject)}&body=${body}`;
-            window.location.href = mailtoLink;
-            showToast("📧 Opening your email app... Please send the email to complete booking.", 5000);
+            const subject = `Booking Request from ${name} - OM Homestay Lamayuru`;
+            const body = `Dear OM Homestay Team,%0A%0AI would like to book a STANDARD MOUNTAIN VIEW ROOM.%0A%0A--- Guest Details ---%0AFull Name: ${name}%0AEmail: ${guestEmail}%0APhone: ${phone}%0AGuests: ${guests}%0ACheck-in: ${checkin}%0ACheck-out: ${checkout}%0AMessage: ${message || "None"}%0A%0AThank you!`;
+            window.location.href = `mailto:${homestayEmail}?subject=${encodeURIComponent(subject)}&body=${body}`;
+            showToast("📧 Opening email client...", 4000);
         });
     }
     
-    // Mobile menu toggle
+    // Mobile menu
     const toggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('mainNav');
     if (toggle) {
-        toggle.addEventListener('click', () => {
-            if (navMenu) navMenu.classList.toggle('active');
-        });
+        toggle.addEventListener('click', () => navMenu.classList.toggle('active'));
     }
     
     // Smooth scroll
@@ -540,25 +549,22 @@
             if (targetElem) {
                 e.preventDefault();
                 targetElem.scrollIntoView({ behavior: 'smooth' });
-                if (navMenu && navMenu.classList.contains('active')) {
-                    navMenu.classList.remove('active');
-                }
+                if (navMenu?.classList.contains('active')) navMenu.classList.remove('active');
             }
         });
     });
     
-    // Date validation
+    // Date picker
     const today = new Date().toISOString().split('T')[0];
     const checkinInput = document.getElementById('checkin');
     const checkoutInput = document.getElementById('checkout');
     if (checkinInput) checkinInput.min = today;
     if (checkoutInput) checkoutInput.min = today;
-    
     if (checkinInput && checkoutInput) {
-        checkinInput.addEventListener('change', function() {
+        checkinInput.addEventListener('change', () => {
             if (checkoutInput.value && checkoutInput.value <= checkinInput.value) {
                 checkoutInput.value = "";
-                showToast("Check-out date must be after check-in", 2500);
+                showToast("Check-out must be after check-in", 2500);
             }
             checkoutInput.min = checkinInput.value;
         });
